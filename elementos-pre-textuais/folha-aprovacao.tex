@@ -1,0 +1,42 @@
+% Documento: Folha de aprovação
+
+\makeatletter
+\begin{folhadeaprovacao}
+\begin{center}
+    {\large\fontfamily{cmr}\scshape\textbf\imprimirautor}
+\end{center}
+\vspace*{\fill}
+    
+\begin{center}
+{\Large
+\MakeUppercase{\imprimirtitulo}\abntex@ifnotempty{\imprimirsubtitulo}{{\MakeTextUppercase{: \imprimirsubtitulo}}
+}}
+\end{center}
+\vspace*{\fill}
+
+\abntex@ifnotempty{\imprimirpreambulo}{%
+\begin{flushright}
+\begin{minipage}{0.47\textwidth}
+\SingleSpacing \small \imprimirpreambulo
+\end{minipage}
+\end{flushright}
+}
+\vspace*{\fill}
+
+Aprovado em 01 de Janeiro de 2022
+\vspace*{\fill}
+        
+\begin{center}
+BANCA EXAMINADORA
+
+    \assinatura{\textbf{\imprimirTitulacaoOrientador~\imprimirorientador} \\ Orientador/IFRJ}
+    \abntex@ifnotempty{\imprimircoorientador}{
+    \assinatura{\textbf{\imprimirTitulacaoCoorientador~\imprimircoorientador}\\ Co-Orientador/IFRJ}}
+    
+    \assinatura{\textbf{Professor} \\ Convidado 1/UFRJ}
+    \assinatura{\textbf{Professor} \\ Convidado 2/UFF}
+    \assinatura{\textbf{Professor} \\ Convidado 3}
+    %\assinatura{\textbf{Professor} \\ Convidado 4}
+\end{center}
+\end{folhadeaprovacao}
+\makeatother
