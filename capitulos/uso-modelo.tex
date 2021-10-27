@@ -1,0 +1,330 @@
+%
+% Documento: Trabalhos Relacionados
+%
+\chapter{Uso do modelo}
+
+\section{Opções para classe}
+
+\subsection{Artigos}
+
+
+\begin{citacao}
+Os autores dos artigos submetidos em periódicos externos e de acesso livre, que utilizaram esse tipo de publicação como TCC, deverão comunicar à
+Biblioteca do campus onde cursaram sobre a existência da pesquisa, enviando uma cópia do artigo para depósito no repositório institucional (RI) do IFRJ, observando a obrigatoriedade da utilização dos seguintes elementos pré- textuais:\\
+    a) capa: elemento obrigatório, deverá ser feita conforme o modelo no Apêndice A e o especificado na seção 2.1;\\
+    b) folha de rosto: elemento obrigatório, contém os elementos essenciais à identificação do artigo, de acordo com Apêndice E;\\
+   c)verso da folha de rosto: elemento obrigatório, contém a ficha catalográfica confeccionada obrigatoriamente por um bibliotecário da Instituição;\\
+    d)folha de aprovação: elemento obrigatório, contém os elementos essenciais à aprovação do trabalho. Após a assinatura da banca, a folha deve ser digitalizada e inserida no documento digital. \cite{ifrjtccs}
+\end{citacao}
+
+
+\section{Citações e referências bibliográficas}
+
+Este capítulo inclui muitas citações bibliográficas. Os principais
+itens de bibliografia citados são livros, artigos em conferências,
+artigos em {\textit journals} e páginas Web. A bibliografia deve seguir o
+padrão ABNT\index{ABNT}\footnote{Este não é o endereço oficial da
+ABNT pois as Normas Técnicas oficiais são pagas e não estão disponíveis na Web.}.
+
+A bibliografia é feita no padrão {\ttfamily bibtex}.
+As referências são colocadas em um arquivo separado.
+Os elementos de cada item bibliográfico que devem constar na bibliografia são apresentados a seguir.
+
+Para livros, o formato da bibliografia no arquivo fonte é o seguinte:
+
+\begin{verbatim}
+@Book{linked,
+   author = {A. L. Barabasi},
+   title = {Linked: The New Science of Networks},
+   publisher = {Perseus Publishing},
+   year = {2002},
+}
+\end{verbatim}
+
+A citação deste livro se faz da seguinte forma \verb#\cite{linked}# e o resultado fica assim \cite{linked}.
+Para os artigos em {\textit journals}, veja por exemplo \cite{acmsurveys},
+descrito da seguinte forma no arquivo {\ttfamily .bib}:
+
+\begin{verbatim}
+@article{acmsurveys,
+   author    = {Deepayan Chakrabarti and Christos Faloutsos},
+   title     = {Graph mining: Laws, generators},
+   journal   = {ACM Computing Surveys},
+   volume    = {38},
+   number    = {1},
+   year      = {2006},
+   pages     = {2-59},
+   publisher = {ACM},
+   address   = {New York, NY, USA},
+}
+\end{verbatim}
+
+O artigo \cite{3faloutsos} foi publicado em conferência. Embora
+às vezes seja difícil distinguir um artigo publicado em {\textit
+ journal} de um artigo publicado em conferência, esta distinção é
+fundamental. Em caso de dúvida, procure ajuda de seu orientador.
+
+Veja também duas citações juntas \cite{rp99,mar00} e como citar
+endereços Web \cite{irl:06}.
+O trabalho realizado para editar as citações no formato correto é
+compensado por uma bibliografia impecável.
+
+\subsection{Citações livres}\label{citacoesLivres}
+Citações são trechos transcritos ou informações retiradas das publicações consultadas para a realização do trabalho.
+As citações são utilizadas no texto com o propósito de esclarecer, completar, embasar ou corroborar as ideias do autor.
+
+Todas as publicações consultadas e efetivamente utilizadas (através de citações) devem ser listadas, obrigatoriamente, nas referências bibliográficas, de forma a preservar os direitos autorais e intelectuais.
+
+Na utilização de citações, normalmente, utiliza-se referências.
+Para cada tipo de referência presente no texto será apresentado um exemplo do comando utilizado para criá-lo.
+
+Há basicamente dois tipos de citações: citações livres e citações literais.
+
+Nas citações livres, reproduzem-se as ideias e informações de um autor, sem, entretanto, ``copiar letra por letra'' o texto do autor.
+Há várias maneiras de se fazer uma citação livre, como mostra os exemplos abaixo.
+
+Por outro lado, \citeonline{maturana:2003} defende um princípio de lógica.
+Para o autor, quando dizemos \ldots
+
+Além disso, \citeonline{teste:2004} argumenta que \ldots\mbox{ }Observe o detalhe do termo \textit{et al}.
+que deve ser utilizado quando o trabalho citado possui mais de três autores.
+Esse recurso é automatizado pelo estilo {\ttfamily abntex2}\index{ABNT!abntex2}.
+Caso não haja desejo em abreviar o nome dos demais autores através do termo \textit{et al.}, deve-se incluir a opção {\ttfamily abnt-no-etal-label}.
+
+Para evitar uma interrupção na sequência do texto, o que poderia, eventualmente, prejudicar a leitura, pode-se indicar a fonte entre parênteses imediatamente após a citação livre.
+Porém, neste caso específico, o nome do autor deve vir em caixa alta, seguido do ano da publicação, como no exemplo a seguir.
+
+
+
+\subsection{Citações literais}\label{citacoesLiterais}
+Nas citações literais, reproduzem-se as ideias e informações de um autor, exatamente como este a expressou, ou seja, faz-se uma ``cópia letra por letra'' do texto do autor.
+Há várias maneiras de se fazer uma citação literal, como mostra os exemplos abaixo.
+
+As citações longas (mais de 3 linhas) devem usar um parágrafo específico para ela, na forma de um texto recuado (4 cm da margem esquerda), com tamanho de letra menor do aquela utilizada no texto e espaçamento simples entre as linhas, seguido dos sobrenomes dos autores em caixa alta (separados por ponto e vírgula), ano de publicação e número da página.
+Veja o exemplo abaixo.
+
+\begin{citacao}
+Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é a possibilidade do sujeito de pensar e de refletir, e a objetividade científica.
+Encontramo-nos num ponto em que o conhecimento científico está sem consciência.
+Sem consciência moral, sem consciência reflexiva e também subjetiva.
+Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa \cite[p.~28]{morinmoigne:2000}.
+\end{citacao}
+
+Para se criar o efeito demonstrado na citação anterior, deve-se utilizar o ambiente \texttt{citacao}.
+\begin{verbatim}
+    \begin{citacao}
+        <citacao>
+    \end{citacao}
+\end{verbatim}
+
+Opcionalmente, pode-se referenciar os autores no corpo de texto (neste caso seus nomes devem vir em minúsculas), e em seguida colocar a citação literal, em um novo parágrafo recuado.
+Note que pode após a citação literal não mais aparece o nome dos autores, visto que já se encontra no texto.
+Veja o exemplo seguinte.
+
+\citeonline[p.~33]{morinmoigne:2000}, ao fazerem as suas críticas à ciência, explicitam uma ideia coletiva:
+
+\begin{citacao}
+Mas o curioso é que o conhecimento científico que descobriu os meios realmente extraordinários para, por exemplo, ver aquilo que se passa no nosso sol, para tentar conceber a estrutura das estrelas extremamente distantes, e até mesmo para tentar pesar o universo, o que é algo de extrema utilidade, o conhecimento científico que multiplicou seus meios de observação e de concepção do universo, dos objetos, está completamente cego, se quiser considerar-se apenas a si próprio!
+\end{citacao}
+
+As citações curtas (menos de 3 linhas) devem ser inseridas diretamente no texto (entre aspas), seguida do nome do autor (em caixa alta), ano e página, como no exemplo a seguir.
+
+Então significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar'' \cite[p.~35]{maturana:2003}.
+
+O conhecimento de \citeonline[p.~35]{maturana:2003} aponta que isto significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar''.
+
+Finalmente, e isto vale para citações curtas ou longas, caso seja necessário inserir, no meio de uma citação uma palavra ou frase curta de sua autoria, que sirva para clarear ou completar a frase do autor citado, isto deve ser feito colocando a citação entre aspas.
+O comentário deverá ser inserido sem aspas.
+Ou seja, todo texto da citação deverá ficar envolvido por aspas.
+O exemplo abaixo apresenta o resultado esperado.
+
+Significa apenas que ``assumo que não posso fazer referência a entidades'' objetivas no sentido tradicional ``independentes de mim para construir meu explicar'' {\citeonline[p.~35]{maturana:2003}}.
+
+\subsection{Informações sobre as referências utilizadas}\label{referenciasUtilizadas}
+
+Nesta seção serão apresentadas os comandos necessários para a criação das referências utilizadas anteriormente.
+As informações serão apresentadas da seguinte maneira:
+
+\begin{itemize}
+    \item \citeonline{maturana:2003}\\ \verb|\citeonline{maturana:2003}|
+    \item \citeonline{teste:2004}\\ \verb|\citeonline{teste:2004}|
+    \item \cite[p.~28]{morinmoigne:2000}\\ \verb|\cite[p.~28]{morinmoigne:2000}|
+    \item \citeonline[p.~33]{morinmoigne:2000}\\ \verb|\citeonline[p.~33]{morinmoigne:2000}|
+    \item \cite[p.~35]{maturana:2003}\\ \verb|\cite[p.~35]{maturana:2003}|
+    \item \citeonline[p.~35]{maturana:2003}\\ \verb|\citeonline[p.~35]{maturana:2003}|
+    \item \cite{teste:2004,maturana:2003}\\ \verb|\cite{teste:2004,maturana:2003}|
+\end{itemize}
+
+
+%
+% Documento: Fundamentação Teórica
+%
+
+\chapter{Elementos flutuantes, equações e referências cruzadas}
+\label{chap:ef}
+
+A seguir ilustra-se a forma de incluir figuras, tabelas, equações, siglas e 
+símbolos no documento, obtendo indexação automática em suas respectivas
+                listas.
+A numeração sequencial de figuras, tabelas e equações ocorre de modo automático.
+Referências cruzadas são obtidas através dos comandos \verb#\label{}# e \verb#\ref{}#.
+Por exemplo, não é necessário saber que o número deste capítulo é \ref{chap:ef} para colocar o seu número no texto.
+Isto facilita muito a inserção, remoção ou relocação de elementos numerados no texto (fato corriqueiro na escrita e correção de um documento acadêmico) sem a necessidade de renumerá-los todos.
+
+
+
+
+
+ 
+\section{Equações}
+\label{sec:equacoes}
+
+A transformada de Laplace é dada na \autoref{eq:laplace}, enquanto a \autoref{eq:dft} apresenta a formulação da transformada discreta de Fourier bidimensional\footnote{Deve-se reparar na formatação esteticamente perfeita destas equações.}.
+
+
+\begin{equation}
+    X(s) = \int\limits_{t = -\infty}^{\infty} x(t) \, \text{e}^{-st} \, dt
+    \label{eq:laplace}
+\end{equation}
+
+\begin{equation}
+    F(u, v) = \sum_{m = 0}^{M - 1} \sum_{n = 0}^{N - 1} f(m, n) \exp \left[ -j 2 \pi \left( \frac{u m}{M} + \frac{v n}{N} \right) \right]
+    \label{eq:dft}
+\end{equation}
+
+
+\section{Elementos flutuantes (tabelas, quadros, gráficos e figuras)}
+
+Tabelas, quadros, gráficos e figuras são elementos utilizados em trabalhos acadêmicos, e possuem diferenças e especificações definidas pela ABNT.
+
+As tabelas são formadas por linhas verticais, devem manter suas bordas laterais abertas e geralmente são utilizadas para dados quantitativos. Os quadros, por outro lado, são formados por linhas verticais e horizontais, devem ter todas suas extremidades fechadas e são mais utilizados para dados qualitativos.
+
+Por último, as figuras e gráficos são elementos ilustrativos, que podem ser em forma de fotos, mapas, gráficos, gravuras, etc.
+
+Todos estes elementos devem estar centralizados, com legenda na parte superior e fonte na parte inferior (ver Quadro \ref{quadroex1} para maiores detalhes).
+
+De forma geral, esses ambiantes podem ser utilizados com os seguintes comandos
+
+
+
+\begin{verbatim}
+\begin{nome do ambiente}[H]
+   \centering
+   \caption{legenda}
+   \label{"etiqueta"}
+      inserção do elemento 
+   \fonte{fonte do elemento}
+\end{table}
+\end{verbatim}
+Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadroex2}.
+
+
+\begin{quadro}[H]
+	\centering
+	\caption{Alguns detalhes sobre elementos flutuantes}
+	\label{quadroex1}
+	\begin{tabular}{|l|m{4cm}|m{4cm}|m{4cm}|}
+		\hline
+		& \textbf{Tabela}                                                                             & \textbf{Quadro}                                                                             & \textbf{Figuras}                                                                    \\ \hline
+		\textbf{Formato}    & Bordas laterais não podem ser fechadas.                                                     & As extremidades devem ser fechadas.                                                         & Podem ser em forma de fotos, mapas, gráficos, gravuras, etc.                        \\ \hline
+		\textbf{Uso}        & Geralmente para dados quantitativos.                                                        & Geralmente para dados qualitativos.                                                         & Ilustrar informações e dados.                                                       \\ \hline
+		\textbf{Elementos}  & Título, cabeçalho, conteúdo, fonte e, se necessário, notas explicativas.                    & Título, fonte, legenda e notas.                                                             & Título, numeração e fonte.                                                          \\ \hline
+		\textbf{Divisão}    & Formada por linhas verticais.                                                               & Formado por linhas horizontais e verticais.                                                 & -                                                                                   \\ \hline
+		\textbf{Formatação} & O número e o título da tabela devem vir acima dela, enquanto a fonte deve aparecer embaixo. & O número e o título do quadro devem vir acima dele, enquanto a fonte deve aparecer embaixo. & O número e o título devem aparecer no topo, enquanto a fonte deve aparecer embaixo. \\ \hline
+	\end{tabular}
+	\fonte{\citeonline{diana}}
+\end{quadro}
+
+\begin{quadro}[H]
+	\centering
+	\caption{Alguns campos utilizados em elementos flutuantes}
+	\label{quadroex2}
+	\begin{tabular}{|m{4cm}|m{8cm}|}
+		\hline
+	\verb|nome do ambiente| & \verb|figure|: para figuras, \verb|grafico|: para gráficos, \verb|table|: para tabelas e \verb|quadro|: para quadros\\ \hline
+	\verb|legenda| & Deve ser inserida como argumento no comando \verb|\caption{}| e refere-se a legenda do elemento flutuante.\\ \hline
+	\verb|"etiqueta"| & Deve ser inserida como argumento no comando \verb|\label{}| e consiste em um nome dado para referenciarmos àquele elemento flutuante no texto.\\ \hline
+	\verb|fonte do elemento| & Deve ser inserida como argumento no comando \verb|\fonte{}| e consiste da informação de onde retirou-se o elemento.\\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelo autor}
+\end{quadro}
+
+
+Abaixo apresentamos alguns exemplos de outros elementos flutuantes  seguidos dos códigos utilizados para inseri-los.
+
+A Figura \ref{fig:conceitodt} aparece automaticamente na lista de figuras.
+Para uso avançado de imagens no \LaTeX, recomenda-se a consulta de literatura especializada \cite{Goossens2007}.
+
+\begin{figure}[H]
+	\centering
+	\caption{Ilustração do conceito de derivada topológica.}
+	\includegraphics[width=0.6\textwidth]{./figuras/conceito.pdf}
+	\fonte{\citeonline{NovotnyBook2013}}
+	\label{fig:conceitodt}
+\end{figure}
+
+\begin{verbatim}
+\begin{figure}[H]
+  \centering
+  \caption{Conceito de derivada topológica.}
+    \includegraphics[width=0.6\textwidth]{./figuras/conceito.pdf}
+  \fonte{\citeonline{NovotnyBook2013}}
+  \label{fig:conceitodt}
+\end{figure}
+\end{verbatim}
+
+
+\begin{table}[H]
+\centering
+\caption{Um nome qualquer}
+\label{ExemploTab}
+\begin{tabular}{r|lr}	
+Posição & País & IDH \\ \hline
+	1 & Noruega        & .955 \\
+	2 & Austrália  & .938 \\
+	3 & EUA            & .937 \\
+	4 & Holanda        & .921 \\
+	5 & Alemanha       & .920            % não é preciso quebrar a última linha
+\end{tabular}
+% \fonte{\citeonline{garcia}}
+\end{table}
+
+\begin{verbatim}
+\begin{table}[H]
+\centering
+\caption{Um nome qualquer}
+\label{ExemploTab}
+\begin{tabular}{r|lr}	
+    	Posição & País & IDH \\	\hline
+    	1 & Noruega        & .955 \\
+    	2 & Austrália  & .938 \\
+    	3 & EUA            & .937 \\
+    	4 & Holanda        & .921 \\
+    	5 & Alemanha       & .920 
+\end{tabular}
+\fonte{\citeonline{garcia}}
+\end{table}
+\end{verbatim}
+
+
+\pagebreak
+
+No Gráfico \ref{gr:exgrafico} apresentamos um exemplo de gráfico.
+
+\begin{grafico}[H]
+\centering
+\caption{Evolução de matrículas dos Institutos Federais}
+\includegraphics[height=6cm]{./figuras/redefederal.jpg}	
+\fonte{MEC/SETEC}
+\label{gr:exgrafico}
+\end{grafico}
+
+\begin{verbatim}
+\begin{grafico}[H]
+  \centering
+  \caption{Evolução de matrículas dos Institutos Federais}
+    \includegraphics[height=6cm]{./figuras/redefederal.jpg}	
+  \fonte{MEC/SETEC}
+  \label{gr:exgrafico}
+\end{grafico}
+\end{verbatim}

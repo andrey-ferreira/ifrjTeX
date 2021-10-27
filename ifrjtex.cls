@@ -2,13 +2,13 @@
 % Autor: Andrey Dione Ferreira - <andrey.ferreira@ifrj.edu.br>
 % Dependência: abntex2 >= 1.7
 
+
+% -------------------------------------------------------
+% Declaracao da classe ifrjtex como uma extensão da classe abntex2
+% -------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ifrjtex}[2015/11/20 v1.0]
 
-% Repassa os parâmetros ao abntex2
-\DeclareOption*{%
-    \PassOptionsToClass{\CurrentOption}{abntex2}
-}
 
 \PassOptionsToClass{%
     % Opções da classe memoir
@@ -34,17 +34,15 @@
 	\PassOptionsToClass{artigo}{abntex2}
 }
 
+
+% Repassa as demais opções à abntex2
+\DeclareOption*{%
+    \PassOptionsToClass{\CurrentOption}{abntex2}
+}
 \ProcessOptions\relax
 \LoadClass{abntex2}
 
-%-----
-% alguns pacotes
-%-----
 
-%\RequirePackage[brazilian,hyperpageref]{backref}    % Produzir índice nas referências
-\RequirePackage{makeidx}                             % Produzir índice remissivo de palavras
-\RequirePackage{chngcntr}
-\RequirePackage{textcase}
 
 %----------------------------------------
 % CONFIGURAÇÕES GERAIS%    
@@ -86,7 +84,6 @@
     \renewcommand{\paragraphautorefname}{Subse{\c c}\~ao}
 }
 
-
 %----------------------------------------
 % LISTAS E NOVOS ELEMENTOS FLUTUANTES % 
 %----------------------------------------
@@ -115,7 +112,7 @@
 \renewcommand*{\cftgraficoaftersnum}{\hfill--\hfill}
 
 %fonte no caption
-\usepackage[font=small]{caption}
+\RequirePackage[font=small]{caption}
 %----------------------------------------
 % ESTILO DE ELEMENTOS % 
 %----------------------------------------
@@ -149,7 +146,6 @@
     \renewcommand{\indexname}{\'Indice Remissivo}
 }
 
-
 %----------------------------------------
 % COMANDOS GERAIS %           
 %----------------------------------------
@@ -159,7 +155,6 @@
 %----------------------------------------
 % COMANDOS DE DADOS %            
 %----------------------------------------
-
 % Comandos de dados - departamento
 \providecommand{\imprimirdepartamento}{}
 \newcommand{\departamento}[1]{\renewcommand{\imprimirdepartamento}{#1}}
@@ -245,7 +240,7 @@
 %----------------------------------------
 % SUMÁRIO
 %----------------------------------------
-\usepackage{titletoc}
+\RequirePackage{titletoc}
 \setcounter{tocdepth}{4}
 \setlength{\cftbeforechapterskip}{1.0em \@plus\p@}
 
@@ -277,8 +272,7 @@
 {}
 {\titlerule*[1pc]{.}\contentspage}
 
-
-\usepackage{tocloft}
+\RequirePackage{tocloft}
 \cftsetindents{chapter}{0cm}{1.6cm}
 
 %----------------------------------------
@@ -353,7 +347,7 @@
 %----------------------------------------
 % CUSTOMIZANDO TABELAS      
 %----------------------------------------
-\usepackage{tabularx}
+\RequirePackage{tabularx}
 \setlength{\extrarowheight}{.5em}
 
 %----------------------------------------
@@ -381,15 +375,15 @@
 	\begin{minipage}[t][0.9\paperheight][t]{0.75\textwidth}
 	\centering
  \bfseries \large  \imprimirinstituicao \\[0.35cm] \textit{Campus} \imprimirlocal \\[0.35cm] \imprimirprograma \\
-% \vspace{\fill}
+
 \vspace{\stretch{1}}
 {\fontfamily{cmr}\scshape\textbf\imprimirautor}\\
 \vspace{\stretch{1}}
-% \vspace{2cm}
+
 \huge\bfseries\imprimirtitulo\abntex@ifnotempty{\imprimirsubtitulo}{%
 		{\ABNTEXchapterfont\huge: }{\imprimirsubtitulo}
 	} \par
-% \vspace{\fill}
+
 \vspace{\stretch{2}}
 	\large
 	\fontfamily{cmr}\scshape{\imprimirlocal}\\
@@ -402,104 +396,30 @@
 %----------------------------------------
 % FOLHA DE ROSTO 
 %----------------------------------------
-% \makeatletter
-% \renewcommand{\imprimirfolhaderosto}{
-% \begin{center}
-%     {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}}
-
-% \vspace*{\fill}
-
-% {\Large
-% \MakeUppercase{\imprimirtitulo}\abntex@ifnotempty{\imprimirsubtitulo}{{\MakeUppercase{: \imprimirsubtitulo}}
-% }
-% }
-% \end{center}
-% \vspace*{\fill}
-
-% \abntex@ifnotempty{\imprimirpreambulo}{%
-% \hspace{\fill}
-% \begin{minipage}{.47\textwidth}
-% \SingleSpacing
-% \small
-% \imprimirpreambulo\\[0.75cm]
-% { \imprimirorientadorRotulo~
-% \imprimirTitulacaoOrientador\,
-% \imprimirorientador}\\[0.3cm]
-% % {\imprimirinstOrientador}
-% % \\[0.5cm]
-% \abntex@ifnotempty{\imprimircoorientador}{%
-%     \imprimircoorientadorRotulo~\imprimirTitulacaoCoorientador\,
-%     \imprimircoorientador
-%     % \\
-%     % \imprimirinstCoorientador
-% }
-% \end{minipage}%
-% }%
-% \vspace*{\fill}
-% \begin{center}
-%     \normalfont{\imprimirlocal}\\
-%     \normalfont{\imprimirdata}
-% \end{center}
-% }
-% \makeatother
-
-%----------------------------------------
-% Diversos Pacotes
-%----------------------------------------
-\RequirePackage{amsfonts, amssymb, amsmath}             % Fonte e símbolos matemáticos
-\RequirePackage{indentfirst}% Indentação do primeiro parágrafo de cada seção.
-\usepackage{microtype}  % Para melhorias de justificação?
-\usepackage{float}      % Utilizado para criação de floats
-\usepackage{icomma}     % Uso de vírgulas em expressões matemáticas
-
-\usepackage{ragged2e}
-
-% \usepackage{utopia}
-% \usepackage[T1]{fontenc} %Codificação da fonte em 8 bits
-
-% \usepackage[default]{sourceserifpro}
-% \usepackage[T1]{fontenc}
-
-% \usepackage[default]{gfsbodoni}
-% \usepackage[T1]{fontenc}
-
-
-\usepackage{lmodern}
-% \usepackage[T1]{fontenc}
-
-% \usepackage{fourier}
-% \usepackage[T1]{fontenc}
-
-% \usepackage{CormorantGaramond}
-
-
-\usepackage{MnSymbol}
-
-% \newcommand{\ifrj@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
-%----
 %Opção para artigo
-%----
 \ifthenelse{\equal{\IFRJartigo}{true}}{%
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
-        {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}}
-        
+        {\large\fontfamily{cmr}\scshape\bfseries {\imprimirautor}\par
+        \imprimirorientador\par
+    \ifthenelse{\not\equal{\imprimircoorientador}{}}{ 
+        \imprimircoorientador \par
+    }{}
+    }
     \vspace*{\fill}
-    
     {\Large
-    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{: \imprimirsubtitulo}
+    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
     }{}
     }
     \end{center}
     \vspace*{\fill}
-    
     {%
     \hspace{\fill}
     \begin{minipage}{.47\textwidth}
     \SingleSpacing
     \small
-    \imprimirpreambulo\\[0.75cm]
+    \imprimirpreambulo\par
     \end{minipage}%
     }%
     \vspace*{\fill}
@@ -513,18 +433,14 @@
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
-        {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}}
-    
+        {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}\par}
     \vspace*{\fill}
-    
     {\Large
-    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{: \imprimirsubtitulo}
+    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
     }{}
     }
     \end{center}
     \vspace*{\fill}
-    
-
     {%
     \hspace{\fill}
     \begin{minipage}{.47\textwidth}
@@ -534,12 +450,8 @@
     { \imprimirorientadorRotulo~
     \imprimirTitulacaoOrientador\,
     \imprimirorientador}\\[0.3cm]
-    % {\imprimirinstOrientador}
-    % \\[0.5cm]
     \ifthenelse{\not\equal{\imprimircoorientador}{}}{ \imprimircoorientadorRotulo~\imprimirTitulacaoCoorientador\,
         \imprimircoorientador
-        % \\
-        % \imprimirinstCoorientador
     }{}
     \end{minipage}%
     }%
@@ -551,3 +463,34 @@
     }
 \makeatother
 }
+
+%----------------------------------------
+% Diversos Pacotes
+%----------------------------------------
+\RequirePackage{amsfonts, amssymb, amsmath}             % Fonte e símbolos matemáticos
+\RequirePackage{indentfirst}% Indentação do primeiro parágrafo de cada seção.
+\RequirePackage{microtype}  % Para melhorias de justificação?
+\RequirePackage{float}      % Utilizado para criação de floats
+\RequirePackage{icomma}     % Uso de vírgulas em expressões matemáticas
+\RequirePackage{ragged2e}
+
+% Fontes
+% \RequirePackage{utopia}
+% \RequirePackage[T1]{fontenc} %Codificação da fonte em 8 bits
+
+% \RequirePackage[default]{sourceserifpro}
+% \RequirePackage[T1]{fontenc}
+
+% \RequirePackage[default]{gfsbodoni}
+% \RequirePackage[T1]{fontenc}
+
+
+\RequirePackage{lmodern}
+% \RequirePackage[T1]{fontenc}
+
+% \RequirePackage{fourier}
+% \RequirePackage[T1]{fontenc}
+
+% \RequirePackage{CormorantGaramond}
+
+\RequirePackage{MnSymbol}
