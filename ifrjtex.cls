@@ -380,9 +380,13 @@
 {\fontfamily{cmr}\scshape\textbf\imprimirautor}\\
 \vspace{\stretch{1}}
 
-\huge\bfseries\imprimirtitulo\abntex@ifnotempty{\imprimirsubtitulo}{%
-		{\ABNTEXchapterfont\huge: }{\imprimirsubtitulo}
-	} \par
+{
+\huge\bfseries
+\imprimirtitulo
+\abntex@ifnotempty{\imprimirsubtitulo}{%
+		{\ABNTEXchapterfont\huge:\par}{\imprimirsubtitulo}
+	}\par
+}
 
 \vspace{\stretch{2}}
 	\large
