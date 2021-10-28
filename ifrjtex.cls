@@ -410,7 +410,7 @@
     }
     \vspace*{\fill}
     {\Large \linespread{2.5}
-    \MakeUppercase{\linespread{1.5}\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
+    \MakeUppercase{\linespread{1.5}\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{\imprimirsubtitulo}\par
     }{}
     }
     \end{center}
@@ -437,7 +437,7 @@
         {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}\par}
     \vspace*{\fill}
     {\Large 
-    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
+    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{ \imprimirsubtitulo}\par
     }{}
     }
     \end{center}
