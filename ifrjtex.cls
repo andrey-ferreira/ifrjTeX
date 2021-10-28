@@ -396,6 +396,7 @@
 %----------------------------------------
 % FOLHA DE ROSTO 
 %----------------------------------------
+
 %Opção para artigo
 \ifthenelse{\equal{\IFRJartigo}{true}}{%
 \makeatletter
@@ -408,8 +409,8 @@
     }{}
     }
     \vspace*{\fill}
-    {\Large
-    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
+    {\Large \linespread{2.5}
+    \MakeUppercase{\linespread{1.5}\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
     }{}
     }
     \end{center}
@@ -435,7 +436,7 @@
     \begin{center}
         {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}\par}
     \vspace*{\fill}
-    {\Large
+    {\Large 
     \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{\MakeUppercase{:\\ \imprimirsubtitulo}
     }{}
     }
