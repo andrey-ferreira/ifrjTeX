@@ -1,4 +1,4 @@
-# Trabalhos-academicos-IFRJ
+# Trabalhos do IFRJ em LaTeX
 
 Este repositório contém uma extensão da classe ABNTeX2 que tem por objetivo adequar as apresentações de Trabalhos Acadêmicos no Instituto Federal de Educação, Ciência e Tecnologia do Rio de Janeiro as normas vigentes na instiuição.
 
