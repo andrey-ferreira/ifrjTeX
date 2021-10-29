@@ -26,12 +26,19 @@
     brazil,                     % Idioma do documento
     }{abntex2}
 
-%----------------------------
-% OPÇÃO PARA ARTIGO
+% opção para projeto de pesquisa
+\providecommand{\IFRJprojeto}{false}
+\DeclareOption{projeto}{
+	\renewcommand{\IFRJprojeto}{true}
+% \PassOptionsToClass{projeto}{abntex2}
+}
+
+
+% opção para artigo
 \providecommand{\IFRJartigo}{false}
 \DeclareOption{artigo}{
 	\renewcommand{\IFRJartigo}{true}
-	\PassOptionsToClass{artigo}{abntex2}
+%\PassOptionsToClass{artigo}{abntex2}
 }
 
 
@@ -41,8 +48,6 @@
 }
 \ProcessOptions\relax
 \LoadClass{abntex2}
-
-
 
 %----------------------------------------
 % CONFIGURAÇÕES GERAIS%    
@@ -401,21 +406,17 @@
 % FOLHA DE ROSTO 
 %----------------------------------------
 
-%Opção para artigo
-\ifthenelse{\equal{\IFRJartigo}{true}}{%
+
+\ifthenelse{\equal{\IFRJprojeto}{true}}{%projeto
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
         {\large\fontfamily{cmr}\scshape\bfseries {\imprimirautor}\par
-        \imprimirorientador\par
-    \ifthenelse{\not\equal{\imprimircoorientador}{}}{ 
-        \imprimircoorientador \par
-    }{}
-    }
+        }
     \vspace*{\fill}
-    {\Large \linespread{2.5}
-    \MakeUppercase{\linespread{1.5}\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{\imprimirsubtitulo}\par
-    }{}
+    {\Large
+    \MakeUppercase{\linespread{1.5}\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{\imprimirsubtitulo}
+    }{}\par
     }
     \end{center}
     \vspace*{\fill}
@@ -435,14 +436,47 @@
     }
 \makeatother
 }{%else
+\ifthenelse{\equal{\IFRJartigo}{true}}{%artigo
+\makeatletter
+    \renewcommand{\imprimirfolhaderosto}{
+    \begin{center}
+        {\large\fontfamily{cmr}\scshape\bfseries {\imprimirautor}\par
+        \imprimirorientador\par
+    \ifthenelse{\not\equal{\imprimircoorientador}{}}{ 
+        \imprimircoorientador \par
+    }{}
+    }
+    \vspace*{\fill}
+    {\Large
+    \MakeUppercase{\linespread{1.5}\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{\imprimirsubtitulo}
+    }{}\par
+    }
+    \end{center}
+    \vspace*{\fill}
+    {%
+    \hspace{\fill}
+    \begin{minipage}{.47\textwidth}
+    \SingleSpacing
+    \small
+    \imprimirpreambulo\par
+    \end{minipage}%
+    }%
+    \vspace*{\fill}
+    \begin{center}
+        \normalfont{\imprimirlocal}\\
+        \normalfont{\imprimirdata}
+    \end{center}
+    }
+\makeatother
+}{%else - tcc,tese,dissertação
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
         {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}\par}
     \vspace*{\fill}
     {\Large 
-    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{ \imprimirsubtitulo}\par
-    }{}
+    \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{ \imprimirsubtitulo}
+    }{}\par
     }
     \end{center}
     \vspace*{\fill}
@@ -468,6 +502,10 @@
     }
 \makeatother
 }
+}
+
+%Opção para artigo
+
 
 %----------------------------------------
 % Diversos Pacotes
