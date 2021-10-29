@@ -11,18 +11,16 @@
 % IMPORTAÇÃO DE PACOTES %
 %-------------------------------------------------
 \usepackage[T1]{fontenc} %Codificação da fonte em 8 bits
-\usepackage{enumitem} %para customizar listas
 \usepackage{smartdiagram} %Construção de diagramas
 \usepackage[portuguese, onelanguage, lined, boxed, commentsnumbered, algoruled]{algorithm2e} % Escrever algoritmos
-\usepackage{tikz,animate,pgfplots,multido} % Desenhar e fazer animações
+\usepackage{animate,pgfplots,multido} % Desenhar e fazer animações
 \pgfplotsset{compat=1.16}
 \usepackage{verbatim}     % Texto é interpretado como escrito no documento
 \usepackage{multirow, array}    % Múltiplas linhas e colunas em tabelas
-\usepackage{epstopdf}  % Faz a conversão de figuras.eps para pdf. Declarar a extensão de cada figura ao chamá-la
 
 
+%referências bibliográficas
 \usepackage[alf, abnt-emphasize=bf, recuo=0cm, abnt-etal-cite=2, abnt-etal-list=0]{abntex2cite}  % Citações padrão ABNT
-
 
 % Criando novos comandos ou redefinindo outros
 \renewcommand{\sin}{\mathrm{sen}}
@@ -35,7 +33,6 @@
 % PREENCHER COM OS DADOS DO TRABALHO            
 %------------------------------------------------
 \titulo{Título do trabalho}
-%\title{Title in English}
 \subtitulo{Subtítulo do trabalho}
 \autor{Nome Completo do Autor}
 \local{Volta Redonda}
@@ -53,9 +50,9 @@
 \instCoorientador{Instituto Federal do Rio de Janeiro - IFRJ}  % Caso não tenha, comente ou apague esta linha.
 \date{2021} %Ano de defesa
 
-%----------------------------------------------------
-% DADOS PARA CATALOGAÇÃO:  CONSULTAR BIBLIOTECA DO CAMPUS APÓS DEFESA E CORREÇÃO
-%----------------------------------------------------
+%-----------------------------------------------
+% DADOS PARA CATALOGAÇÃO:  CONSULTAR BIBLIOTECA DO CAMPUS PARA DADOS DA TABELA CUTTER E CDU
+%-----------------------------------------------
 \TabelaCutter{????}        % Preencher ???? com Tabela Cutter (Ver na biblioteca do campus)
 \CDU{?????}      % Preencher com o código CDU (ver na biblioteca do Campus)
 \keywords{ 1. Palavra-chave1. 2. Palavra-chave2. 2. Palavra-chave3.} %Preencher com as palavras chaves (Conferir na biblioteca do campus)
@@ -68,7 +65,6 @@
 % INÍCIO DO DOCUMENTO
 %------------------------------------------------
 \begin{document}
-
 \frenchspacing % Retira espaço extra obsoleto entre as frases
     
 %-------------------------------------------------
