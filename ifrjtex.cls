@@ -180,15 +180,18 @@
 \providecommand{\imprimirinstCoorientador}{}
 \newcommand{\instCoorientador}[1]{\renewcommand{\imprimirinstCoorientador}{#1}}
 
-% Criação do comando para área de concentração (folha de rosto)
-\newcommand{\imprimirareaconcentracaoRotulo}{\'Area de concentra\c{c}\~ao: }
+% % Criação do comando para área de concentração (folha de rosto)
+\newcommand{\areaname}{\'Area de concentra\c{c}\~ao: }
+\providecommand{\imprimirareaconcentracaoRotulo}{}
 \providecommand{\imprimirareaconcentracao}{}
-\newcommand{\areaconcentracao}[1]{\renewcommand{\imprimirareaconcentracao}{#1}}
+\newcommand{\areaconcentracao}[2][\areaname]%
+  {\renewcommand{\imprimirareaconcentracaoRotulo}{#1}%
+   \renewcommand{\imprimirareaconcentracao}{#2}}
 
-% Criação do comando para linha de pesquisa (folha de rosto)
-\newcommand{\imprimirlinhapesquisaRotulo}{Linha de pesquisa: }
-\providecommand{\imprimirlinhapesquisa}{}
-\newcommand{\linhapesquisa}[1]{\renewcommand{\imprimirlinhapesquisa}{#1}}
+% % Criação do comando para linha de pesquisa (folha de rosto)
+% \newcommand{\imprimirlinhapesquisaRotulo}{Linha de pesquisa: }
+% \providecommand{\imprimirlinhapesquisa}{}
+% \newcommand{\linhapesquisa}[1]{\renewcommand{\imprimirlinhapesquisa}{#1}}
 
 % Comandos de dados - titulação do orientador
 \providecommand{\imprimirTitulacaoOrientador}{}
@@ -425,7 +428,8 @@
     \begin{minipage}{.47\textwidth}
     \SingleSpacing
     \small
-    \imprimirpreambulo\par
+    \imprimirpreambulo\\[0.5cm]
+    \imprimirareaconcentracaoRotulo\imprimirareaconcentracao\par
     \end{minipage}%
     }%
     \vspace*{\fill}
@@ -503,8 +507,6 @@
 \makeatother
 }
 }
-
-%Opção para artigo
 
 
 %----------------------------------------
