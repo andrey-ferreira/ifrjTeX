@@ -11,6 +11,7 @@
 % IMPORTAÇÃO DE PACOTES %
 %-------------------------------------------------
 \usepackage[T1]{fontenc} %Codificação da fonte em 8 bits
+\usepackage[autostyle]{csquotes}
 \usepackage{smartdiagram} %Construção de diagramas
 \usepackage[portuguese, onelanguage, lined, boxed, commentsnumbered, algoruled]{algorithm2e} % Escrever algoritmos
 \usepackage{animate,pgfplots,multido} % Desenhar e fazer animações
@@ -18,15 +19,17 @@
 \usepackage{verbatim}     % Texto é interpretado como escrito no documento
 \usepackage{multirow, array}    % Múltiplas linhas e colunas em tabelas
 
+\usepackage{pdfpages} % para inserção de página em pdf
+
+
+%----
 %referências bibliográficas
-\usepackage[alf, abnt-emphasize=bf, recuo=0cm, abnt-etal-cite=2, abnt-etal-list=0]{abntex2cite}  % Citações padrão ABNT
+\addbibresource{refbase.bib} % base bibliográfica
 
 % Criando novos comandos ou redefinindo outros
 \renewcommand{\sin}{\mathrm{sen}}
 
-
 \makeindex % Cria o índice remissivo
-
 
 %------------------------------------------------
 % PREENCHER COM OS DADOS DO TRABALHO            
@@ -51,8 +54,8 @@
 \preambulo{Trabalho de Conclusão de Curso submetido ao corpo docente do \imprimirinstituicao\, como requisito parcial para a obtenção do grau de Licenciado em Matemática.}
 
 %para projetos de pesquisa
-% \areaconcentracao{Nome da área de concentração}
-\areaconcentracao[Linha de pesquisa: ]{Nome da linha}
+\areaconcentracao{Nome da área de concentração}
+% \areaconcentracao[Linha de pesquisa: ]{Nome da linha}
 %-----------------------------------------------
 % DADOS PARA CATALOGAÇÃO:  CONSULTAR BIBLIOTECA DO CAMPUS PARA DADOS DA TABELA CUTTER E CDU
 %-----------------------------------------------
@@ -64,6 +67,36 @@
 \sobrenomeOrientador{ Sobrenome ori }   % Preencher com o último sobrenome do orientador(a)
 \NomeOrientador{Nome orientador}   % Preencher com o nome do orientador(a) com exceção do último sobrenome
 
+
+% IMPRESSÃO DE CÓDIGO
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.9,0.9,0.9}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {à}{{\`a}}1 {â}{{\^a}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {ç}{{\c c}}1 {ó}{{\'o}}1 {ô}{{\^o}}1 {õ}{{\~o}}1 {ú}{{\'u}}1 {í}{{\'i}}1
+}
+
+\lstset{style=mystyle}
 %-------------------------------------------------
 % INÍCIO DO DOCUMENTO
 %------------------------------------------------
@@ -105,13 +138,14 @@
     \textual
     \include{capitulos/introducao}            % Introdução
     \include{capitulos/uso-modelo}
-    \include{capitulos/conclusao}             % Conclusão
+    % \include{capitulos/conclusao}             % Conclusão
 
 %-------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS %
 %-------------------------------------------------
     \postextual
-    \bibliography{./refbase}    % Geração automática das referências por meio do arquivo 'refbase.bib'
+    \printbibliography
+    % \bibliography{./refbase}    % Geração automática das referências por meio do arquivo 'refbase.bib'
     % \printbibliography % Geração automática das referências por meio do arquivo 'refbase.bib'
     \include{elementos-pos-textuais/apendices}   % Apêndices
     \include{elementos-pos-textuais/anexos}  % Anexos

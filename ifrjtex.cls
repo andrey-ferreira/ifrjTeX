@@ -3,9 +3,9 @@
 % Dependência: abntex2 >= 1.7
 
 
-% -------------------------------------------------------
+% -----------------------------------------------
 % Declaracao da classe ifrjtex como uma extensão da classe abntex2
-% -------------------------------------------------------
+% -----------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ifrjtex}[2015/11/20 v1.0]
 
@@ -539,3 +539,8 @@
 % \RequirePackage{CormorantGaramond}
 
 \RequirePackage{MnSymbol}
+
+%-------------------------------------------------
+% Referências
+\RequirePackage[style = abnt]{biblatex}
+\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\normalfont\url{#1}}%

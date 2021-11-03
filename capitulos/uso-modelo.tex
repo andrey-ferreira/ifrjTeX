@@ -3,11 +3,34 @@
 %
 \chapter{Uso do modelo}
 
+Por se tratar de uma extensão da classe \verb|abntex2|, todas as opções, ambientes e macros da classe \verb|abntex2|\cite{abntex2classe}
+e \verb|memoir|\cite{madsen2021memoir} podem ser utilizadas.
+
+
 \section{Opções para a classe \texttt{ifrjtex}}
 
+As opções \verb|artigo| e \verb|projeto| podem ser passadas ao carregar a classe para que a folha de rosto seja ajustada automaticamente ao formato exigido pelo Manual de Apresentação de Trabalhos Acadêmicos \cite{ifrjtccs}.
+
+Caso o usuário opte por editar estes elementos, recomendamos que seja redefinida as macros específicas para a impressão dos mesmos fornecidas pela \verb|abntex2|\cite{abntex2classe}.
+
+\subsection{Projetos de Pesquisa}
+Conforme definido no Manual de Apresentação de Trabalhos Acadêmicos, a estrutura de um projeto podem variar conforme as normas estabelecidas pela instituição.
+\begin{citacao}
+O projeto de pesquisa é um planejamento das etapas do trabalho que será desenvolvido. Sua estrutura pode variar de acordo com as normas estabelecidas pela instituição, sendo constituído pela parte externa e pela parte interna. A externa constitui-se de capa (obrigatória), e a interna é organizada por elementos pré-textuais, elementos textuais e elementos pós-textuais.\cite{ifrjtccs}
+\end{citacao}
+
+Para que o modelo imprima os elementos pré-textuais com os elementos exigidos no Manual, a opção \verb|projeto| pode ser passada à classe quando a mesma for selecionada, conforme segue.
+
+\textbackslash\texttt{documentclass[projeto]\{ifrjtex\}}
+
+No entanto, ao construir este modelo em \LaTeX, o autor disponibilizou, além dos elementos exigidos, a macro \verb|\areaconcentracao{}|, visto que muitos programas podem exigir entregas de projetos vinculados à áreas de concentração ou linhas de pesquisa, por exemplo. Dessa forma, optou-se por imprimir na folha de rosto a entrada da macro \verb|\areaconcentracao{}| caso esta seja preenchida.
+
+Os dados da macro \verb|\areaconcentracao{}| são impressos por padrão na folha de rosto após o preâmbulo com o rótulo ``\textbf{Área de concentração: }''.
+
+Caso o usuário queira modificar esse rótulo, pode-se passar um novo rótulo como opção para a macro \verb|\areaconcentracao{}|. Por exemplo, se no preâmbulo o usuário substituir \verb|\areaconcentracao{Nome da área de concentração}| por \\ \verb|\areaconcentracao[Linha de pesquisa: ]{Nome da linha}|, será impresso o rótulo ``\textbf{Linha de pesquisa: }'' no lugar de ``\textbf{Área de concentração: }''.
+
 \subsection{Artigos}
-
-
+Segundo orientações do Manual de Apresentação de Trabalhos Acadêmicos
 \begin{citacao}
 Os autores dos artigos submetidos em periódicos externos e de acesso livre, que utilizaram esse tipo de publicação como TCC, deverão comunicar à
 Biblioteca do campus onde cursaram sobre a existência da pesquisa, enviando uma cópia do artigo para depósito no repositório institucional (RI) do IFRJ, observando a obrigatoriedade da utilização dos seguintes elementos pré- textuais:\\
@@ -17,60 +40,29 @@ Biblioteca do campus onde cursaram sobre a existência da pesquisa, enviando uma
     d)folha de aprovação: elemento obrigatório, contém os elementos essenciais à aprovação do trabalho. Após a assinatura da banca, a folha deve ser digitalizada e inserida no documento digital. \cite{ifrjtccs}
 \end{citacao}
 
+Para que o modelo imprima esses elementos em conformidade com o Manual, a opção \verb|artigo| pode ser passada à classe quando a mesma for selecionada, conforme segue.
 
-\subsection{Projetos de Pesquisa}
+\textbackslash\texttt{documentclass[artigo]\{ifrjtex\}}
+
+Para inserção do artigo submetido em periódicos externos e de acesso livre, recomendamos que o autor utilize após a folha de aprovação o comando \\ \noindent\verb|\includepdf[pages=-]{myfile.pdf}| fornecido pelo pacote \verb|pdfpages| \cite{pdfpages}.
 
 
-\section{Citações e referências bibliográficas}
 
-Este capítulo inclui muitas citações bibliográficas. Os principais
-itens de bibliografia citados são livros, artigos em conferências,
-artigos em {\textit journals} e páginas Web. A bibliografia deve seguir o
-padrão ABNT\index{ABNT}\footnote{Este não é o endereço oficial da
-ABNT pois as Normas Técnicas oficiais são pagas e não estão disponíveis na Web.}.
 
-A bibliografia é feita no padrão {\ttfamily bibtex}.
-As referências são colocadas em um arquivo separado.
-Os elementos de cada item bibliográfico que devem constar na bibliografia são apresentados a seguir.
+\section{Referências bibliográficas e citações}
 
-Para livros, o formato da bibliografia no arquivo fonte é o seguinte:
+Nesta versão da classe, optamos por utilizar o tratamento das referências bibliográficas com o {\ttfamily biblatex} e o estilo \texttt{abnt}, visto que
+\begin{citacao}
+Sendo totalmente implementado em \LaTeX, ele substitui os arquivos de estilo \verb|bibtex abntex2-alf.bst, abntex2-num.bst| e o pacote \verb|abntex2cite.sty| descrito neste manual. Com isso, o \verb|biblatex-abnt| deve aposentar os estilos de formatação do \verb|abntex2cite| e utilizar exclusivamente o \verb|biblatex-abnt| e as macros padrões do Bib\LaTeX. \cite{araujopacote}
+\end{citacao}
 
-\begin{verbatim}
-@Book{linked,
-   author = {A. L. Barabasi},
-   title = {Linked: The New Science of Networks},
-   publisher = {Perseus Publishing},
-   year = {2002},
-}
-\end{verbatim}
+Recomendamos que seja lida as referências específicas dos pacotes \verb|biblatex-abnt| disponíveis em \url{https://www.ctan.org/pkg/biblatex-abnt}.
 
-A citação deste livro se faz da seguinte forma \verb#\cite{linked}# e o resultado fica assim \cite{linked}.
-Para os artigos em {\textit journals}, veja por exemplo \cite{acmsurveys},
-descrito da seguinte forma no arquivo {\ttfamily .bib}:
+Conforme orientado por \textcite{marquesbiblatex}, o \verb|biblatex-abnt 3.4| requer \verb|biblatex 3.8| e \verb|biber 2.8| e caso haja algum problema na compilação, cheque se seus pacotes estão atualizados.
 
-\begin{verbatim}
-@article{acmsurveys,
-   author    = {Deepayan Chakrabarti and Christos Faloutsos},
-   title     = {Graph mining: Laws, generators},
-   journal   = {ACM Computing Surveys},
-   volume    = {38},
-   number    = {1},
-   year      = {2006},
-   pages     = {2-59},
-   publisher = {ACM},
-   address   = {New York, NY, USA},
-}
-\end{verbatim}
+Exemplos de entrada para o \verb|biblatex|, semelhantes aos encontrados no arquivo \verb|refbase.bib| deste projeto, podem ser encontradas em \textcite{marquesbiblatex} e todas as possíveis entradas, distinguindo entre campos obrigatórios e opcionais podem ser consultadas em \cite{lehman2006biblatex}. Além disso, todas as saídas geradas conforme a NBR 10520:2002 usando o sistema autor-data podem ser consultadas em \textcite{marquesexemplos}.
 
-O artigo \cite{3faloutsos} foi publicado em conferência. Embora
-às vezes seja difícil distinguir um artigo publicado em {\textit
- journal} de um artigo publicado em conferência, esta distinção é
-fundamental. Em caso de dúvida, procure ajuda de seu orientador.
-
-Veja também duas citações juntas \cite{rp99,mar00} e como citar
-endereços Web \cite{irl:06}.
-O trabalho realizado para editar as citações no formato correto é
-compensado por uma bibliografia impecável.
+Recomenda-se ainda que o potencial usuário deste modelo utilize gerenciadores de bases bibliográficas como o \textcite{JabRef2009} e \textcite{Zotero}.
 
 \subsection{Citações livres}\label{citacoesLivres}
 Citações são trechos transcritos ou informações retiradas das publicações consultadas para a realização do trabalho.
@@ -86,10 +78,10 @@ Há basicamente dois tipos de citações: citações livres e citações literai
 Nas citações livres, reproduzem-se as ideias e informações de um autor, sem, entretanto, ``copiar letra por letra'' o texto do autor.
 Há várias maneiras de se fazer uma citação livre, como mostra os exemplos abaixo.
 
-Por outro lado, \citeonline{maturana:2003} defende um princípio de lógica.
+Por outro lado, \textcite{maturana:2003} defende um princípio de lógica.
 Para o autor, quando dizemos \ldots
 
-Além disso, \citeonline{teste:2004} argumenta que \ldots\mbox{ }Observe o detalhe do termo \textit{et al}.
+Além disso, \textcite{teste:2004} argumenta que \ldots\mbox{ }Observe o detalhe do termo \textit{et al}.
 que deve ser utilizado quando o trabalho citado possui mais de três autores.
 Esse recurso é automatizado pelo estilo {\ttfamily abntex2}\index{ABNT!abntex2}.
 Caso não haja desejo em abreviar o nome dos demais autores através do termo \textit{et al.}, deve-se incluir a opção {\ttfamily abnt-no-etal-label}.
@@ -97,7 +89,7 @@ Caso não haja desejo em abreviar o nome dos demais autores através do termo \t
 Para evitar uma interrupção na sequência do texto, o que poderia, eventualmente, prejudicar a leitura, pode-se indicar a fonte entre parênteses imediatamente após a citação livre.
 Porém, neste caso específico, o nome do autor deve vir em caixa alta, seguido do ano da publicação, como no exemplo a seguir.
 
-
+\cite{BibTeX2009}
 
 \subsection{Citações literais}\label{citacoesLiterais}
 Nas citações literais, reproduzem-se as ideias e informações de um autor, exatamente como este a expressou, ou seja, faz-se uma ``cópia letra por letra'' do texto do autor.
@@ -110,21 +102,28 @@ Veja o exemplo abaixo.
 Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é a possibilidade do sujeito de pensar e de refletir, e a objetividade científica.
 Encontramo-nos num ponto em que o conhecimento científico está sem consciência.
 Sem consciência moral, sem consciência reflexiva e também subjetiva.
-Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa \cite[p.~28]{morinmoigne:2000}.
+Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa \cite[p.28]{morinmoigne:2000}.
 \end{citacao}
 
 Para se criar o efeito demonstrado na citação anterior, deve-se utilizar o ambiente \texttt{citacao}.
 \begin{verbatim}
-    \begin{citacao}
-        <citacao>
-    \end{citacao}
+\begin{citacao}
+    Desse modo, opera-se uma ruptura decisiva entre a reflexividade
+    filosófica, isto é a possibilidade do sujeito de pensar e de refletir,
+    e a objetividade científica. Encontramo-nos num ponto em que o 
+    conhecimento científico está sem consciência.
+    Sem consciência moral, sem consciência reflexiva e também subjetiva.
+    Cada vez mais o desenvolvimento extraordinário do conhecimento 
+    científico vai tornar menos praticável a própria possibilidade 
+    de reflexão do sujeito sobre a sua pesquisa \cite[p.28]{morinmoigne:2000}.
+\end{citacao}
 \end{verbatim}
 
 Opcionalmente, pode-se referenciar os autores no corpo de texto (neste caso seus nomes devem vir em minúsculas), e em seguida colocar a citação literal, em um novo parágrafo recuado.
 Note que pode após a citação literal não mais aparece o nome dos autores, visto que já se encontra no texto.
 Veja o exemplo seguinte.
 
-\citeonline[p.~33]{morinmoigne:2000}, ao fazerem as suas críticas à ciência, explicitam uma ideia coletiva:
+\textcite[p.~33]{morinmoigne:2000}, ao fazerem as suas críticas à ciência, explicitam uma ideia coletiva:
 
 \begin{citacao}
 Mas o curioso é que o conhecimento científico que descobriu os meios realmente extraordinários para, por exemplo, ver aquilo que se passa no nosso sol, para tentar conceber a estrutura das estrelas extremamente distantes, e até mesmo para tentar pesar o universo, o que é algo de extrema utilidade, o conhecimento científico que multiplicou seus meios de observação e de concepção do universo, dos objetos, está completamente cego, se quiser considerar-se apenas a si próprio!
@@ -134,28 +133,29 @@ As citações curtas (menos de 3 linhas) devem ser inseridas diretamente no text
 
 Então significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar'' \cite[p.~35]{maturana:2003}.
 
-O conhecimento de \citeonline[p.~35]{maturana:2003} aponta que isto significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar''.
+O conhecimento de \textcite[p.~35]{maturana:2003} aponta que isto significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar''.
 
 Finalmente, e isto vale para citações curtas ou longas, caso seja necessário inserir, no meio de uma citação uma palavra ou frase curta de sua autoria, que sirva para clarear ou completar a frase do autor citado, isto deve ser feito colocando a citação entre aspas.
 O comentário deverá ser inserido sem aspas.
 Ou seja, todo texto da citação deverá ficar envolvido por aspas.
 O exemplo abaixo apresenta o resultado esperado.
 
-Significa apenas que ``assumo que não posso fazer referência a entidades'' objetivas no sentido tradicional ``independentes de mim para construir meu explicar'' {\citeonline[p.~35]{maturana:2003}}.
+Significa apenas que ``assumo que não posso fazer referência a entidades'' objetivas no sentido tradicional ``independentes de mim para construir meu explicar'' {\textcite[p.~35]{maturana:2003}}.
 
-\subsection{Informações sobre as referências utilizadas}\label{referenciasUtilizadas}
+\subsection{Comandos para citações}\label{referenciasUtilizadas}
 
-Nesta seção serão apresentadas os comandos necessários para a criação das referências utilizadas anteriormente.
-As informações serão apresentadas da seguinte maneira:
+Alguns exemplos de citação conforme \textcite{marquesbiblatex}:
 
 \begin{itemize}
-    \item \citeonline{maturana:2003}\\ \verb|\citeonline{maturana:2003}|
-    \item \citeonline{teste:2004}\\ \verb|\citeonline{teste:2004}|
+    \item \textcite{maturana:2003}\\ \verb|\textcite{maturana:2003}|
+    \item \textcite{teste:2004}\\ \verb|\textcite{teste:2004}|
     \item \cite[p.~28]{morinmoigne:2000}\\ \verb|\cite[p.~28]{morinmoigne:2000}|
-    \item \citeonline[p.~33]{morinmoigne:2000}\\ \verb|\citeonline[p.~33]{morinmoigne:2000}|
+    \item \textcite[p.~33]{morinmoigne:2000}\\ \verb|\textcite[p.~33]{morinmoigne:2000}|
     \item \cite[p.~35]{maturana:2003}\\ \verb|\cite[p.~35]{maturana:2003}|
-    \item \citeonline[p.~35]{maturana:2003}\\ \verb|\citeonline[p.~35]{maturana:2003}|
+    \item \textcite[p.~35]{maturana:2003}\\ \verb|\textcite[p.~35]{maturana:2003}|
     \item \cite{teste:2004,maturana:2003}\\ \verb|\cite{teste:2004,maturana:2003}|
+    \item \apud{maturana:2003}{morinmoigne:2000}\\
+    \verb|\apud{maturana:2003}{morinmoigne:2000}|
 \end{itemize}
 
 
@@ -165,6 +165,8 @@ As informações serão apresentadas da seguinte maneira:
 
 \chapter{Elementos flutuantes, equações e referências cruzadas}
 \label{chap:ef}
+
+\textcolor{red}{\large ESTE CAPÍTULO SERÁ ATUALIZADO COM ORIENTAÇÕES DE USO DE MELHORES PACOTES!!}
 
 A seguir ilustra-se a forma de incluir figuras, tabelas, equações, siglas e 
 símbolos no documento, obtendo indexação automática em suas respectivas
@@ -235,7 +237,7 @@ Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadr
 		\textbf{Divisão}    & Formada por linhas verticais.                                                               & Formado por linhas horizontais e verticais.                                                 & -                                                                                   \\ \hline
 		\textbf{Formatação} & O número e o título da tabela devem vir acima dela, enquanto a fonte deve aparecer embaixo. & O número e o título do quadro devem vir acima dele, enquanto a fonte deve aparecer embaixo. & O número e o título devem aparecer no topo, enquanto a fonte deve aparecer embaixo. \\ \hline
 	\end{tabular}
-	\fonte{\citeonline{diana}}
+	\fonte{\textcite{diana}}
 \end{quadro}
 
 \begin{quadro}[H]
@@ -262,7 +264,7 @@ Para uso avançado de imagens no \LaTeX, recomenda-se a consulta de literatura e
 	\centering
 	\caption{Ilustração do conceito de derivada topológica.}
 	\includegraphics[width=0.6\textwidth]{./figuras/conceito.pdf}
-	\fonte{\citeonline{NovotnyBook2013}}
+	\fonte{\textcite{NovotnyBook2013}}
 	\label{fig:conceitodt}
 \end{figure}
 
@@ -271,7 +273,7 @@ Para uso avançado de imagens no \LaTeX, recomenda-se a consulta de literatura e
   \centering
   \caption{Conceito de derivada topológica.}
     \includegraphics[width=0.6\textwidth]{./figuras/conceito.pdf}
-  \fonte{\citeonline{NovotnyBook2013}}
+  \fonte{\textcite{NovotnyBook2013}}
   \label{fig:conceitodt}
 \end{figure}
 \end{verbatim}
@@ -289,7 +291,7 @@ Posição & País & IDH \\ \hline
 	4 & Holanda        & .921 \\
 	5 & Alemanha       & .920            % não é preciso quebrar a última linha
 \end{tabular}
-% \fonte{\citeonline{garcia}}
+% \fonte{\textcite{garcia}}
 \end{table}
 
 \begin{verbatim}
@@ -305,7 +307,7 @@ Posição & País & IDH \\ \hline
     	4 & Holanda        & .921 \\
     	5 & Alemanha       & .920 
 \end{tabular}
-\fonte{\citeonline{garcia}}
+\fonte{\textcite{garcia}}
 \end{table}
 \end{verbatim}
 
