@@ -544,3 +544,9 @@
 % Referências
 \RequirePackage[style = abnt]{biblatex}
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\normalfont\url{#1}}%
+
+
+\setlength{\bibitemsep}{15pt}
+\appto{\bibsetup}{%
+    \renewcommand{\baselinestretch}{1.0}
+}%
