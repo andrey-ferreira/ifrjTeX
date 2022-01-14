@@ -545,8 +545,29 @@
 \RequirePackage[style = abnt]{biblatex}
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\normalfont\url{#1}}%
 
-
 \setlength{\bibitemsep}{15pt}
 \appto{\bibsetup}{%
     \renewcommand{\baselinestretch}{1.0}
 }%
+
+\RequirePackage{color}
+\RequirePackage[usenames,dvipsnames]{xcolor}
+% Para cronogramas
+
+\RequirePackage{enumitem}
+\newlist{etapas}{enumerate}{1}% 
+\setlist[etapas]{label={Etapa \arabic*} - ,wide=0pt, widest=99,leftmargin=\parindent}
+
+\RequirePackage{pgfgantt}
+\ganttset{
+    % bar height=0.6,
+    y unit title=0.7cm,
+    y unit chart=0.7cm,
+    title height=0.99,
+    title/.append style={draw=none, fill=RoyalBlue!40!black},
+    progress label text={\small \sffamily\pgfmathprintnumber[fixed, precision=1]{#1}\% completa},
+    title label font=\sffamily\small\color{white},
+    bar label font=\small\sffamily\color{black},
+    % bar label node/.append style={align=left},
+    bar/.style={fill=RoyalBlue!90!black}
+}

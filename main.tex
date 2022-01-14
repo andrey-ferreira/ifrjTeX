@@ -23,7 +23,7 @@
 
 
 %----
-%referências bibliográficas
+%referências bibliográficas tratadas com biblatex
 \addbibresource{refbase.bib} % base bibliográfica
 
 % Criando novos comandos ou redefinindo outros
@@ -68,35 +68,6 @@
 \NomeOrientador{Nome orientador}   % Preencher com o nome do orientador(a) com exceção do último sobrenome
 
 
-% IMPRESSÃO DE CÓDIGO
-\usepackage{listings}
-\usepackage{xcolor}
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.9,0.9,0.9}
-\lstdefinestyle{mystyle}{
-	backgroundcolor=\color{backcolour},   
-	commentstyle=\color{codegreen},
-	keywordstyle=\color{magenta},
-	numberstyle=\tiny\color{codegray},
-	stringstyle=\color{codepurple},
-	basicstyle=\ttfamily\footnotesize,
-	breakatwhitespace=false,         
-	breaklines=true,                 
-	captionpos=b,                    
-	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
-	showspaces=false,                
-	showstringspaces=false,
-	showtabs=false,                  
-	tabsize=2,
-	literate={á}{{\'a}}1 {ã}{{\~a}}1 {à}{{\`a}}1 {â}{{\^a}}1 {é}{{\'e}}1 {ê}{{\^e}}1 {ç}{{\c c}}1 {ó}{{\'o}}1 {ô}{{\^o}}1 {õ}{{\~o}}1 {ú}{{\'u}}1 {í}{{\'i}}1
-}
-
-\lstset{style=mystyle}
 %-------------------------------------------------
 % INÍCIO DO DOCUMENTO
 %------------------------------------------------
@@ -114,8 +85,7 @@
     \include{elementos-pre-textuais/dedicatoria}         % Dedicatória (ELEMENTO OPCIONAL)
     \include{elementos-pre-textuais/agradecimentos}      % Agradecimentos  (ELEMENTO OPCIONAL)
     \include{elementos-pre-textuais/epigrafe}            % Epígrafe (ELEMENTO OPCIONAL)
-    \include{elementos-pre-textuais/resumo-pt}           % Resumo na língua vernácula
-    \include{elementos-pre-textuais/resumo-en}           % Resumo em língua estrangeira
+    \include{elementos-pre-textuais/resumos}           % Resumos
     
 
     \pdfbookmark[0]{\listfigurename}{lof} \listoffigures*  \cleardoublepage  % Lista de figuras (OPCIONAL)

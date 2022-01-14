@@ -333,3 +333,80 @@ No Gráfico \ref{gr:exgrafico} apresentamos um exemplo de gráfico.
   \label{gr:exgrafico}
 \end{grafico}
 \end{verbatim}
+
+
+\section{Exemplo de criação de cronograma}
+
+
+No caso de projetos de pesquisa, pode ser necessário a criação de um plano de trabalho com a a descrição das etapas do mesmo.
+
+A seguir apresentamos um exemplo de criação feita com algumas customizações do pacote \verb|pgfgantt|.
+
+\begin{verbatim}
+%descrição das etapas
+\begin{etapas}
+    	\item \label{e1} Descrição da etapa 1
+    	\item \label{e2} Descrição da etapa 2
+    	\item \label{e3} Sed consequat tellus et tortor. Ut tempor laoreet quam.
+    	\item \label{e4} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    	\item \label{e5} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    	\item \label{e6} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    	\item \label{e7} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+\end{etapas}
+
+%diagrama com referências às etapas
+\begin{center}
+        \begin{ganttchart}[vgrid,hgrid]{1}{24}
+        \gantttitle{2021}{12} %12 meses em 2021
+        \gantttitle{2022}{12} \\ %12 meses em 2022
+            \gantttitlelist{1,...,12}{1} % meses 1 ao 12 de 2021
+            \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2022
+                \ganttbar[progress=65]{\ref{e1}}{1}{7} \\
+                \ganttbar{\ref{e2}}{7}{12} \\
+                \ganttbar{\ref{e3}}{13}{18} \\
+                \ganttbar{\ref{e4}}{18}{24}
+        \end{ganttchart}
+        
+        \begin{ganttchart}[vgrid,hgrid]{1}{12}
+        \gantttitle{2023}{12}\\ %12 meses em 2023
+            \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2023
+                \ganttbar{\ref{e5}}{1}{7} \\
+                \ganttbar{\ref{e6}}{8}{10} \\
+                \ganttbar{\ref{e7}}{10}{12}
+        \end{ganttchart}
+\end{center}
+\end{verbatim}
+
+
+\begin{etapas}
+	\item \label{e1} Descrição da etapa 1
+	\item \label{e2} Descrição da etapa 2
+	\item \label{e3} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+	\item \label{e4} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+	\item \label{e5} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+	\item \label{e6} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+	\item \label{e7} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+\end{etapas}
+
+\begin{center}
+
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+\gantttitle{2021}{12} %12 meses em 2021
+\gantttitle{2022}{12} \\ %12 meses em 2022
+    \gantttitlelist{1,...,12}{1} % meses 1 ao 12 de 2021
+    \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2022
+        \ganttbar[progress=65]{\ref{e1}}{1}{7} \\
+        \ganttbar{\ref{e2}}{7}{12} \\
+        \ganttbar{\ref{e3}}{13}{18} \\
+        \ganttbar{\ref{e4}}{18}{24}
+\end{ganttchart}
+
+\begin{ganttchart}[vgrid,hgrid]{1}{12}
+\gantttitle{2023}{12}\\ %12 meses em 2023
+    \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2023
+        \ganttbar{\ref{e5}}{1}{7} \\
+        \ganttbar{\ref{e6}}{8}{10} \\
+        \ganttbar{\ref{e7}}{10}{12}
+\end{ganttchart}
+
+\end{center}
