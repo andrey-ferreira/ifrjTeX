@@ -550,6 +550,11 @@
     \renewcommand{\baselinestretch}{1.0}
 }%
 
+\renewcommand*{\mkbibnamefamily}[1]{#1}%
+% Norma NBR10.520/2023 - Sobrenomes em minúsculas
+% OUTRAS FORMATAÇÕES
+
+
 \RequirePackage{color}
 \RequirePackage[usenames,dvipsnames]{xcolor}
 % Para cronogramas

@@ -2,23 +2,22 @@
 %   Autor: Andrey Dione Ferreira - <andrey.ferreira@ifrj.edu.br>
 %   Codificação utilizada: UTF-8
 %   Tamanho da tabulação: 4 (espaços)
-%	Atualizado em 03/06/2021
+%	Atualizado em 01/06/2023
 
 % \documentclass{ifrjtex}  % Imprimir frente e verso
 \documentclass[oneside]{ifrjtex}  % Imprimir apenas frente
 
-%-------------------------------------------------
+%----------------------------
 % IMPORTAÇÃO DE PACOTES %
-%-------------------------------------------------
-\usepackage[T1]{fontenc} %Codificação da fonte em 8 bits
-\usepackage[autostyle]{csquotes}
-\usepackage{smartdiagram} %Construção de diagramas
-\usepackage[portuguese, onelanguage, lined, boxed, commentsnumbered, algoruled]{algorithm2e} % Escrever algoritmos
-\usepackage{animate,pgfplots,multido} % Desenhar e fazer animações
-\pgfplotsset{compat=1.16}
+%-----------------------------
+
+% \usepackage{smartdiagram} %Construção de diagramas
+% \usepackage[portuguese, onelanguage, lined, boxed, commentsnumbered, algoruled]{algorithm2e} % Escrever algoritmos
+% \usepackage{animate,pgfplots,multido} % Desenhar e fazer animações
+% \pgfplotsset{compat=1.16}
 \usepackage{verbatim}     % Texto é interpretado como escrito no documento
 \usepackage{multirow, array}    % Múltiplas linhas e colunas em tabelas
-
+% \usepackage{listings} % para impressão de códigos
 \usepackage{pdfpages} % para inserção de página em pdf
 
 
@@ -31,9 +30,9 @@
 
 \makeindex % Cria o índice remissivo
 
-%------------------------------------------------
+%----------------------------------------------
 % PREENCHER COM OS DADOS DO TRABALHO            
-%------------------------------------------------
+%----------------------------------------------
 \titulo{Título do trabalho}
 \subtitulo{Subtítulo do trabalho}
 \autor{Nome Completo do Autor}
@@ -68,15 +67,15 @@
 \NomeOrientador{Nome orientador}   % Preencher com o nome do orientador(a) com exceção do último sobrenome
 
 
-%-------------------------------------------------
+%-----------------------
 % INÍCIO DO DOCUMENTO
-%------------------------------------------------
+%-----------------------
 \begin{document}
 \frenchspacing % Retira espaço extra obsoleto entre as frases
     
-%-------------------------------------------------
+%-----------------------
 % ELEMENTOS PRÉ-TEXTUAIS %
-%-------------------------------------------------
+%-----------------------
     \pretextual
     \imprimircapa
     \imprimirfolhaderosto     % Folha de rosto
@@ -96,23 +95,23 @@
     \include{elementos-pre-textuais/lista-siglas}        % Lista de abreviaturas e siglas (OPCIONAL)
     \include{elementos-pre-textuais/lista-simbolos}      % Lista de símbolos (OPCIONAL)
 
-%-------------------------------------------------
+%-----------------------
 % Documento: Sumário
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
-%-------------------------------------------------
+%-----------------------
 % ELEMENTOS TEXTUAIS %
-%-------------------------------------------------
-    \textual
-    \include{capitulos/introducao}            % Introdução
-    \include{capitulos/uso-modelo}
-    % \include{capitulos/conclusao}             % Conclusão
+%-----------------------
+\textual
+\include{capitulos/introducao} % Introdução
+\include{capitulos/uso-modelo}
+\include{capitulos/conclusao}             % Conclusão
 
-%-------------------------------------------------
+%-----------------------
 % ELEMENTOS PÓS-TEXTUAIS %
-%-------------------------------------------------
+%-----------------------
     \postextual
     \printbibliography
     % \bibliography{./refbase}    % Geração automática das referências por meio do arquivo 'refbase.bib'

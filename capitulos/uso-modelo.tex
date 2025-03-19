@@ -60,9 +60,9 @@ Recomendamos que seja lida as referências específicas dos pacotes \verb|biblat
 
 Conforme orientado por \textcite{marquesbiblatex}, o \verb|biblatex-abnt 3.4| requer \verb|biblatex 3.8| e \verb|biber 2.8| e caso haja algum problema na compilação, cheque se seus pacotes estão atualizados.
 
-Exemplos de entrada para o \verb|biblatex|, semelhantes aos encontrados no arquivo \verb|refbase.bib| deste projeto, podem ser encontradas em \textcite{marquesbiblatex} e todas as possíveis entradas, distinguindo entre campos obrigatórios e opcionais podem ser consultadas em \cite{lehman2006biblatex}. Além disso, todas as saídas geradas conforme a NBR 10520:2002 usando o sistema autor-data podem ser consultadas em \textcite{marquesexemplos}.
+Exemplos de entrada para o \verb|biblatex|, semelhantes aos encontrados no arquivo \verb|refbase.bib| deste projeto, podem ser encontradas em \textcite{marquesbiblatex} e todas as possíveis entradas, distinguindo entre campos obrigatórios e opcionais podem ser consultadas na obra \citetitle{lehman2006biblatex}. Além disso, todas as saídas geradas conforme a NBR 10520:2002 usando o sistema autor-data podem ser consultadas em \textcite{marquesexemplos}.
 
-Recomenda-se ainda que o potencial usuário deste modelo utilize gerenciadores de bases bibliográficas como o \textcite{JabRef2009} e \textcite{Zotero}.
+Recomenda-se ainda que o potencial usuário deste modelo utilize gerenciadores de bases bibliográficas como o \textcite{Zotero} e \textcite{JabRef2009}.
 
 \subsection{Citações livres}\label{citacoesLivres}
 Citações são trechos transcritos ou informações retiradas das publicações consultadas para a realização do trabalho.
@@ -102,7 +102,7 @@ Veja o exemplo abaixo.
 Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é a possibilidade do sujeito de pensar e de refletir, e a objetividade científica.
 Encontramo-nos num ponto em que o conhecimento científico está sem consciência.
 Sem consciência moral, sem consciência reflexiva e também subjetiva.
-Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa \cite[p.28]{morinmoigne:2000}.
+Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa. \cite[p.28]{morinmoigne:2000}.
 \end{citacao}
 
 Para se criar o efeito demonstrado na citação anterior, deve-se utilizar o ambiente \texttt{citacao}.
@@ -115,19 +115,19 @@ Para se criar o efeito demonstrado na citação anterior, deve-se utilizar o amb
     Sem consciência moral, sem consciência reflexiva e também subjetiva.
     Cada vez mais o desenvolvimento extraordinário do conhecimento 
     científico vai tornar menos praticável a própria possibilidade 
-    de reflexão do sujeito sobre a sua pesquisa \cite[p.28]{morinmoigne:2000}.
+    de reflexão do sujeito sobre a sua pesquisa. \cite[p.28]{morinmoigne:2000}.
 \end{citacao}
 \end{verbatim}
 
-Opcionalmente, pode-se referenciar os autores no corpo de texto (neste caso seus nomes devem vir em minúsculas), e em seguida colocar a citação literal, em um novo parágrafo recuado.
-Note que pode após a citação literal não mais aparece o nome dos autores, visto que já se encontra no texto.
-Veja o exemplo seguinte.
+% Opcionalmente, pode-se referenciar os autores no corpo de texto (citação indireta), e em seguida colocar a citação literal, em um novo parágrafo recuado.
+% Note que pode após a citação literal não mais aparece o nome dos autores, visto que já se encontra no texto.
+% Veja o exemplo seguinte.
 
-\textcite[p.~33]{morinmoigne:2000}, ao fazerem as suas críticas à ciência, explicitam uma ideia coletiva:
+% \textcite{morinmoigne:2000}, ao fazerem as suas críticas à ciência, explicitam uma ideia coletiva:
 
-\begin{citacao}
-Mas o curioso é que o conhecimento científico que descobriu os meios realmente extraordinários para, por exemplo, ver aquilo que se passa no nosso sol, para tentar conceber a estrutura das estrelas extremamente distantes, e até mesmo para tentar pesar o universo, o que é algo de extrema utilidade, o conhecimento científico que multiplicou seus meios de observação e de concepção do universo, dos objetos, está completamente cego, se quiser considerar-se apenas a si próprio!
-\end{citacao}
+% \begin{citacao}
+% Mas o curioso é que o conhecimento científico que descobriu os meios realmente extraordinários para, por exemplo, ver aquilo que se passa no nosso sol, para tentar conceber a estrutura das estrelas extremamente distantes, e até mesmo para tentar pesar o universo, o que é algo de extrema utilidade, o conhecimento científico que multiplicou seus meios de observação e de concepção do universo, dos objetos, está completamente cego, se quiser considerar-se apenas a si próprio! \cite[p.~33]{morinmoigne:2000}
+% \end{citacao}
 
 As citações curtas (menos de 3 linhas) devem ser inseridas diretamente no texto (entre aspas), seguida do nome do autor (em caixa alta), ano e página, como no exemplo a seguir.
 
@@ -144,18 +144,22 @@ Significa apenas que ``assumo que não posso fazer referência a entidades'' obj
 
 \subsection{Comandos para citações}\label{referenciasUtilizadas}
 
-Alguns exemplos de citação conforme \textcite{marquesbiblatex}:
+Alguns exemplos de citação (comando seguido do resultado para o estilo alfabético):
 
 \begin{itemize}
-    \item \textcite{maturana:2003}\\ \verb|\textcite{maturana:2003}|
-    \item \textcite{teste:2004}\\ \verb|\textcite{teste:2004}|
-    \item \cite[p.~28]{morinmoigne:2000}\\ \verb|\cite[p.~28]{morinmoigne:2000}|
-    \item \textcite[p.~33]{morinmoigne:2000}\\ \verb|\textcite[p.~33]{morinmoigne:2000}|
-    \item \cite[p.~35]{maturana:2003}\\ \verb|\cite[p.~35]{maturana:2003}|
-    \item \textcite[p.~35]{maturana:2003}\\ \verb|\textcite[p.~35]{maturana:2003}|
-    \item \cite{teste:2004,maturana:2003}\\ \verb|\cite{teste:2004,maturana:2003}|
-    \item \apud{maturana:2003}{morinmoigne:2000}\\
-    \verb|\apud{maturana:2003}{morinmoigne:2000}|
+    \item \verb|\textcite{memoir}| \\ \textcite{memoir}
+    \item \verb|\cite{Goossens2007}| \\ \cite{Goossens2007} 
+    \item \verb|\textcites{acmsurveys,carvalho:2001}| \\ \textcites{acmsurveys,carvalho:2001}
+    \item \verb|\cites{acmsurveys,Buerger1989}| \\ \cites{acmsurveys,Buerger1989}
+    \item \verb|\textapud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}| \\ \textapud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}
+    \item \verb|\apud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}| \\ \apud{maturana:2003}{morinmoigne:2000}
+    \item \verb|\apud[batman][]{Buerger1989}| \\ \apud[batman][]{Buerger1989}
+    \item \verb|Andrey \cite[apud][p.~200]{Buerger1989}| \\ Andrey \cite[apud][p.~200]{Buerger1989}
+    \item \verb|Como sabemos \footcite[Cf., e.g.,][]{maturana:2003}, ...| \\  Como sabemos \footcite[Cf., e.g.,][]{maturana:2003}, ...
+    \item \verb|\citeauthor{abntex2classe}| \\ \citeauthor{abntex2classe}
+    \item \verb|\citeyear{abntex2classe}| \\ \citeyear{abntex2classe}
+    \item \verb|\fullcite{Goossens2007}| \\ \fullcite{Goossens2007}
+    
 \end{itemize}
 
 
@@ -166,11 +170,7 @@ Alguns exemplos de citação conforme \textcite{marquesbiblatex}:
 \chapter{Elementos flutuantes, equações e referências cruzadas}
 \label{chap:ef}
 
-\textcolor{red}{\large ESTE CAPÍTULO SERÁ ATUALIZADO COM ORIENTAÇÕES DE USO DE MELHORES PACOTES!!}
-
-A seguir ilustra-se a forma de incluir figuras, tabelas, equações, siglas e 
-símbolos no documento, obtendo indexação automática em suas respectivas
-                listas.
+Ilustra-se neste capitulo algumas maneiras de incluir figuras, tabelas, equações e outros elementos neste documento, obtendo indexação automática em suas respectivas listas.
 A numeração sequencial de figuras, tabelas e equações ocorre de modo automático.
 Referências cruzadas são obtidas através dos comandos \verb#\label{}# e \verb#\ref{}#.
 Por exemplo, não é necessário saber que o número deste capítulo é \ref{chap:ef} para colocar o seu número no texto.
@@ -186,6 +186,19 @@ Isto facilita muito a inserção, remoção ou relocação de elementos numerado
 
 A transformada de Laplace é dada na \autoref{eq:laplace}, enquanto a \autoref{eq:dft} apresenta a formulação da transformada discreta de Fourier bidimensional\footnote{Deve-se reparar na formatação esteticamente perfeita destas equações.}.
 
+\begin{verbatim}
+\begin{equation}
+    X(s) = \int\limits_{t = -\infty}^{\infty} x(t) \, \text{e}^{-st} \, dt
+\label{eq:laplace}
+\end{equation}
+
+\begin{equation}
+    F(u,v)=\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}f(m,n)\exp\left[-j2\pi
+    \left(\frac{um}{M}+\frac{vn}{N}\right) \right]
+\label{eq:dft}
+\end{equation}
+\end{verbatim}
+
 
 \begin{equation}
     X(s) = \int\limits_{t = -\infty}^{\infty} x(t) \, \text{e}^{-st} \, dt
@@ -200,16 +213,28 @@ A transformada de Laplace é dada na \autoref{eq:laplace}, enquanto a \autoref{e
 
 \section{Elementos flutuantes (tabelas, quadros, gráficos e figuras)}
 
-Tabelas, quadros, gráficos e figuras são elementos utilizados em trabalhos acadêmicos, e possuem diferenças e especificações definidas pela ABNT.
+Tabelas, quadros, gráficos e figuras são elementos utilizados em trabalhos acadêmicos, e possuem diferenças e especificações definidas pela ABNT \cite{NBR14724:2011}. Todos estes elementos devem ser referenciados no texto.
 
-As tabelas são formadas por linhas verticais, devem manter suas bordas laterais abertas e geralmente são utilizadas para dados quantitativos. Os quadros, por outro lado, são formados por linhas verticais e horizontais, devem ter todas suas extremidades fechadas e são mais utilizados para dados qualitativos.
+No quadro \ref{quadroex1} apresenta-se alguns detalhes desses elementos.
 
-Por último, as figuras e gráficos são elementos ilustrativos, que podem ser em forma de fotos, mapas, gráficos, gravuras, etc.
+\begin{quadro}[H]
+	\centering
+	\caption{Alguns detalhes sobre elementos flutuantes}
+	\label{quadroex1}
+	\begin{tabular}{|l|m{4cm}|m{4cm}|m{4cm}|}
+		\hline
+		& \textbf{Tabela}                                                                             & \textbf{Quadro}                                                                             & \textbf{Figuras}                                                                    \\ \hline
+		\textbf{Formato}    & Bordas laterais não podem ser fechadas.                                                     & As extremidades devem ser fechadas.                                                         & Podem ser em forma de fotos, mapas, gráficos, gravuras, etc.                        \\ \hline
+		\textbf{Uso}        & Geralmente para dados quantitativos.                                                        & Geralmente para dados qualitativos.                                                         & Ilustrar informações e dados.                                                       \\ \hline
+		\textbf{Elementos}  & Título, cabeçalho, conteúdo, fonte e, se necessário, notas explicativas.                    & Título, fonte, legenda e notas.                                                             & Título, numeração e fonte.                                                          \\ \hline
+		\textbf{Divisão}    & Formada por linhas horizontais.                                                               & Formado por linhas horizontais e verticais.                                                 & -                                                                                   \\ \hline
+		\textbf{Formatação} & O número e o título da tabela devem vir acima dela, enquanto a fonte deve aparecer embaixo. & O número e o título do quadro devem vir acima dele, enquanto a fonte deve aparecer embaixo. & O número e o título devem aparecer no topo, enquanto a fonte deve aparecer embaixo. \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelo autor}
+\end{quadro}
 
-Todos estes elementos devem estar centralizados, com legenda na parte superior e fonte na parte inferior (ver Quadro \ref{quadroex1} para maiores detalhes).
 
-De forma geral, esses ambiantes podem ser utilizados com os seguintes comandos
-
+De forma geral, a inserção desses elementos podem ser feitas em ambientes específicos conforme exemplificado a seguir.
 
 
 \begin{verbatim}
@@ -222,23 +247,6 @@ De forma geral, esses ambiantes podem ser utilizados com os seguintes comandos
 \end{table}
 \end{verbatim}
 Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadroex2}.
-
-
-\begin{quadro}[H]
-	\centering
-	\caption{Alguns detalhes sobre elementos flutuantes}
-	\label{quadroex1}
-	\begin{tabular}{|l|m{4cm}|m{4cm}|m{4cm}|}
-		\hline
-		& \textbf{Tabela}                                                                             & \textbf{Quadro}                                                                             & \textbf{Figuras}                                                                    \\ \hline
-		\textbf{Formato}    & Bordas laterais não podem ser fechadas.                                                     & As extremidades devem ser fechadas.                                                         & Podem ser em forma de fotos, mapas, gráficos, gravuras, etc.                        \\ \hline
-		\textbf{Uso}        & Geralmente para dados quantitativos.                                                        & Geralmente para dados qualitativos.                                                         & Ilustrar informações e dados.                                                       \\ \hline
-		\textbf{Elementos}  & Título, cabeçalho, conteúdo, fonte e, se necessário, notas explicativas.                    & Título, fonte, legenda e notas.                                                             & Título, numeração e fonte.                                                          \\ \hline
-		\textbf{Divisão}    & Formada por linhas verticais.                                                               & Formado por linhas horizontais e verticais.                                                 & -                                                                                   \\ \hline
-		\textbf{Formatação} & O número e o título da tabela devem vir acima dela, enquanto a fonte deve aparecer embaixo. & O número e o título do quadro devem vir acima dele, enquanto a fonte deve aparecer embaixo. & O número e o título devem aparecer no topo, enquanto a fonte deve aparecer embaixo. \\ \hline
-	\end{tabular}
-	\fonte{\textcite{diana}}
-\end{quadro}
 
 \begin{quadro}[H]
 	\centering
@@ -254,65 +262,37 @@ Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadr
 	\fonte{Elaborado pelo autor}
 \end{quadro}
 
+\subsection{Exemplo de elementos flutuantes}
 
-Abaixo apresentamos alguns exemplos de outros elementos flutuantes  seguidos dos códigos utilizados para inseri-los.
+Apresentamos nesta seção alguns exemplos de outros elementos flutuantes seguidos dos códigos utilizados para inseri-los.
 
-A Figura \ref{fig:conceitodt} aparece automaticamente na lista de figuras.
+\subsubsection{Figuras e gráficos}
+
+As figuras e gráficos são elementos ilustrativos, que podem ser em forma de fotos, mapas, gráficos, gravuras, etc.
+
+A figura \ref{fig:logo} aparece automaticamente na lista de figuras.
 Para uso avançado de imagens no \LaTeX, recomenda-se a consulta de literatura especializada \cite{Goossens2007}.
 
 \begin{figure}[H]
 	\centering
-	\caption{Ilustração do conceito de derivada topológica.}
-	\includegraphics[width=0.6\textwidth]{./figuras/conceito.pdf}
-	\fonte{\textcite{NovotnyBook2013}}
-	\label{fig:conceitodt}
+	\caption{Logo do projeto \LaTeX.}
+	\includegraphics[width=13cm]{figuras/LaTeXproject.png}
+	\fonte{\textcite{LaTeX2009}}
+	\label{fig:logo}
 \end{figure}
+
+\pagebreak
+Inserimos a figura \ref{fig:logo} com o seguinte código:
 
 \begin{verbatim}
 \begin{figure}[H]
-  \centering
-  \caption{Conceito de derivada topológica.}
-    \includegraphics[width=0.6\textwidth]{./figuras/conceito.pdf}
-  \fonte{\textcite{NovotnyBook2013}}
-  \label{fig:conceitodt}
+   \centering
+   \caption{Logo do projeto \LaTeX.}
+   \includegraphics[width=13cm]{figuras/LaTeXproject.png}
+   \fonte{\textcite{LaTeX2009}}
+   \label{fig:logo}
 \end{figure}
 \end{verbatim}
-
-
-\begin{table}[H]
-\centering
-\caption{Um nome qualquer}
-\label{ExemploTab}
-\begin{tabular}{r|lr}	
-Posição & País & IDH \\ \hline
-	1 & Noruega        & .955 \\
-	2 & Austrália  & .938 \\
-	3 & EUA            & .937 \\
-	4 & Holanda        & .921 \\
-	5 & Alemanha       & .920            % não é preciso quebrar a última linha
-\end{tabular}
-% \fonte{\textcite{garcia}}
-\end{table}
-
-\begin{verbatim}
-\begin{table}[H]
-\centering
-\caption{Um nome qualquer}
-\label{ExemploTab}
-\begin{tabular}{r|lr}	
-    	Posição & País & IDH \\	\hline
-    	1 & Noruega        & .955 \\
-    	2 & Austrália  & .938 \\
-    	3 & EUA            & .937 \\
-    	4 & Holanda        & .921 \\
-    	5 & Alemanha       & .920 
-\end{tabular}
-\fonte{\textcite{garcia}}
-\end{table}
-\end{verbatim}
-
-
-\pagebreak
 
 No Gráfico \ref{gr:exgrafico} apresentamos um exemplo de gráfico.
 
@@ -326,13 +306,141 @@ No Gráfico \ref{gr:exgrafico} apresentamos um exemplo de gráfico.
 
 \begin{verbatim}
 \begin{grafico}[H]
-  \centering
-  \caption{Evolução de matrículas dos Institutos Federais}
-    \includegraphics[height=6cm]{./figuras/redefederal.jpg}	
-  \fonte{MEC/SETEC}
-  \label{gr:exgrafico}
+   \centering
+   \caption{Evolução de matrículas dos Institutos Federais}
+   \includegraphics[height=6cm]{./figuras/redefederal.jpg}	
+   \fonte{MEC/SETEC}
+   \label{gr:exgrafico}
 \end{grafico}
 \end{verbatim}
+
+% Pode-se inserir gráficos diretamente no \LaTeX utilizando-se de pacotes como \verb|pgfplots, tikz|, entre outros. A figura \ref{fig:grafico} ilustra essa possibilidade com o pacote \verb|pgfplots|.
+
+% \begin{grafico}[H]
+% \centering
+% \caption{Exemplo de gráfico construído no \LaTeX}
+% \label{fig:grafico}
+%     \begin{tikzpicture}
+%     \begin{axis}[hide axis,colormap/cool,]
+%     \addplot3[mesh,samples =50,domain = -8:8,]
+%     {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+%     \addlegendentry{$\frac{\sin(r)}{r}$}
+%     \end{axis}
+%     \end{tikzpicture}
+% \fonte{Elaborado pelo autor}
+% \end{grafico}
+
+\begin{verbatim}
+\begin{grafico}[H]
+\centering
+\caption{Exemplo de gráfico construído no \LaTeX}
+\label{grafico}
+    \begin{tikzpicture}
+    \begin{axis}[hide axis,colormap/cool,]
+    \addplot3[mesh,samples =50,domain = -8:8,]
+    {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+    \addlegendentry{$\frac{\sin(r)}{r}$}
+    \end{axis}
+    \end{tikzpicture}
+\fonte{Elaborado pelo autor}
+\end{grafico}
+\end{verbatim}
+
+\subsubsection{Tabelas}
+As tabelas devem seguir as normas descritas por \textcite{ibge1993}. Sendo formadas por linhas horizontais, devem manter suas bordas laterais abertas e geralmente são utilizadas para dados quantitativos. Os quadros, por outro lado, são formados por linhas verticais e horizontais, devem ter todas suas extremidades fechadas e são mais utilizados para dados qualitativos.
+
+\textcite{abntex2classe} fornece, na classe \verb|abntex2|, a macro \verb|IBGEtab{}{}{}|, que tem por objetivo topo, corpo e rodapé das tabelas com alinhamento conforme descrito em \textcite{ibge1993}. Esta macro deve receber três argumentos para cada uma destas partes da tabela conforme exemplificado na tabela \ref{tab: residentes}. Para representação numérica correta dos dados da tabela, consulte \textcite{ibge1993}.
+
+\pagebreak
+\textbf{Exemplo de código para gerar a tabela \ref{tab: residentes} com a macro} \verb|IBGEtab{}{}{}|.
+
+\begin{verbatim}
+\begin{table}[H]
+\IBGEtab{
+   \caption{Pessoas Residentes em domicílios particulares, por sexo e situação do domicílio - Brasil - 1980}%
+   \label{tab: residentes}
+  }
+{
+\begin{tabular}{m{2cm}ccc}
+   \toprule
+   Situação do Total & Total & Mulheres & Homens \\
+   \midrule
+   Total & 117.960.301 & 59.595.332 & 58.364.969 \\
+   Urbana & 79.972.931 & 41.115.439 & 38.857.492 \\
+   Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
+   \bottomrule
+\end{tabular}
+}
+{
+   \fonte{IBGE}
+   \nota{Dados fictícios}
+}
+\end{table}
+\end{verbatim}
+
+\begin{table}[H]
+\IBGEtab{
+  \caption{Pessoas Residentes em domicílios particulares, por sexo e situação do domicílio - Brasil - 1980}%
+  \label{tab: residentes}
+  }
+{
+\begin{tabular}{m{2.0cm}ccc}
+ \toprule
+ Situação do Total & Total & Mulheres & Homens \\
+\midrule
+Total & 117.960.301 & 59.595.332 & 58.364.969 \\
+Urbana & 79.972.931 & 41.115.439 & 38.857.492 \\
+Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
+\bottomrule
+\end{tabular}
+}
+{
+\fonte{IBGE}
+\nota{Dados fictícios}
+}
+\end{table}
+
+
+
+\subsection{Quadros}
+
+Os quadros devem ser criados dentro do ambiente \verb|quadro|, podendo sua tabulação ser feita por diversos recursos como os ambientes \verb|tabular, tabularray, tabu, ...|.
+
+Por exemplo, o código abaixo cria o quadro \ref{qua:ex}:
+
+% \begin{lstlisting}[breaklines]
+\begin{verbatim}
+\begin{quadro}[H]
+   \centering
+   \caption{Exemplo de quadro simples}
+   \label{qua:ex}
+   \begin{tabular}{|m{4cm}|m{5cm}|m{3cm}|}
+   \hline
+   \textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3}\\ \hline
+   Texto aqui & Lorem ipsum dolor ...  & Ut accumsan sapien eget magna ... \\ 
+   \hline
+   Texto da segunda linha & bla bla bla & bla bla bla  \\ \hline
+   \end{tabular}
+   \fonte{Elaborado pelo autor}
+\end{quadro}
+\end{verbatim}
+
+\begin{quadro}[H]
+   \centering
+   \caption{Exemplo de quadro simples}
+   \label{qua:ex}
+   \begin{tabular}{|m{4cm}|m{5cm}|m{3cm}|}
+   \hline
+   \textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3}\\ \hline
+   Texto aqui & Lorem ipsum dolor ...  & Ut accumsan sapien eget magna ... \\ \hline
+   Texto da segunda linha & bla bla bla & bla bla bla  \\ \hline
+   \end{tabular}
+   \fonte{Elaborado pelo autor}
+\end{quadro}
+
+\pagebreak
+
+
 
 
 \section{Exemplo de criação de cronograma}
