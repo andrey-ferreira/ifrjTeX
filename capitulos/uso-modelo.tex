@@ -16,7 +16,7 @@ Caso o usuário opte por editar estes elementos, recomendamos que seja redefinid
 \subsection{Projetos de Pesquisa}
 Conforme definido no Manual de Apresentação de Trabalhos Acadêmicos, a estrutura de um projeto podem variar conforme as normas estabelecidas pela instituição.
 \begin{citacao}
-O projeto de pesquisa é um planejamento das etapas do trabalho que será desenvolvido. Sua estrutura pode variar de acordo com as normas estabelecidas pela instituição, sendo constituído pela parte externa e pela parte interna. A externa constitui-se de capa (obrigatória), e a interna é organizada por elementos pré-textuais, elementos textuais e elementos pós-textuais.\cite{ifrjtccs}
+O projeto de pesquisa é um planejamento das etapas do trabalho que será desenvolvido. Sua estrutura pode variar de acordo com as normas estabelecidas pela instituição, sendo constituído pela parte externa e pela parte interna. A externa constitui-se de capa (obrigatória), e a interna é organizada por elementos pré-textuais, elementos textuais e elementos pós-textuais.\cite[p. 73]{ifrjtccs}.
 \end{citacao}
 
 Para que o modelo imprima os elementos pré-textuais com os elementos exigidos no Manual, a opção \verb|projeto| pode ser passada à classe quando a mesma for selecionada, conforme segue.
@@ -37,7 +37,7 @@ Biblioteca do campus onde cursaram sobre a existência da pesquisa, enviando uma
     a) capa: elemento obrigatório, deverá ser feita conforme o modelo no Apêndice A e o especificado na seção 2.1;\\
     b) folha de rosto: elemento obrigatório, contém os elementos essenciais à identificação do artigo, de acordo com Apêndice E;\\
    c)verso da folha de rosto: elemento obrigatório, contém a ficha catalográfica confeccionada obrigatoriamente por um bibliotecário da Instituição;\\
-    d)folha de aprovação: elemento obrigatório, contém os elementos essenciais à aprovação do trabalho. Após a assinatura da banca, a folha deve ser digitalizada e inserida no documento digital. \cite{ifrjtccs}
+    d)folha de aprovação: elemento obrigatório, contém os elementos essenciais à aprovação do trabalho. Após a assinatura da banca, a folha deve ser digitalizada e inserida no documento digital. \cite[p. 102]{ifrjtccs}.
 \end{citacao}
 
 Para que o modelo imprima esses elementos em conformidade com o Manual, a opção \verb|artigo| pode ser passada à classe quando a mesma for selecionada, conforme segue.
@@ -53,7 +53,7 @@ Para inserção do artigo submetido em periódicos externos e de acesso livre, r
 
 Nesta versão da classe, optamos por utilizar o tratamento das referências bibliográficas com o {\ttfamily biblatex} e o estilo \texttt{abnt}, visto que
 \begin{citacao}
-Sendo totalmente implementado em \LaTeX, ele substitui os arquivos de estilo \verb|bibtex abntex2-alf.bst, abntex2-num.bst| e o pacote \verb|abntex2cite.sty| descrito neste manual. Com isso, o \verb|biblatex-abnt| deve aposentar os estilos de formatação do \verb|abntex2cite| e utilizar exclusivamente o \verb|biblatex-abnt| e as macros padrões do Bib\LaTeX. \cite{araujopacote}
+Sendo totalmente implementado em \LaTeX, ele substitui os arquivos de estilo \verb|bibtex abntex2-alf.bst, abntex2-num.bst| e o pacote \verb|abntex2cite.sty| descrito neste manual. Com isso, o \verb|biblatex-abnt| deve aposentar os estilos de formatação do \verb|abntex2cite| e utilizar exclusivamente o \verb|biblatex-abnt| e as macros padrões do Bib\LaTeX. \cite[p. 3]{araujopacote}
 \end{citacao}
 
 Recomendamos que seja lida as referências específicas dos pacotes \verb|biblatex-abnt| disponíveis em \url{https://www.ctan.org/pkg/biblatex-abnt}.
@@ -140,7 +140,7 @@ O comentário deverá ser inserido sem aspas.
 Ou seja, todo texto da citação deverá ficar envolvido por aspas.
 O exemplo abaixo apresenta o resultado esperado.
 
-Significa apenas que ``assumo que não posso fazer referência a entidades'' objetivas no sentido tradicional ``independentes de mim para construir meu explicar'' {\textcite[p.~35]{maturana:2003}}.
+Significa apenas que ``assumo que não posso fazer referência a entidades'' objetivas no sentido tradicional ``independentes de mim para construir meu explicar''. {\cite[p.~35]{maturana:2003}}.
 
 \subsection{Comandos para citações}\label{referenciasUtilizadas}
 
@@ -163,11 +163,7 @@ Alguns exemplos de citação (comando seguido do resultado para o estilo alfabé
 \end{itemize}
 
 
-%
-% Documento: Fundamentação Teórica
-%
-
-\chapter{Elementos flutuantes, equações e referências cruzadas}
+\chapter{Elementos flutuantes e referências cruzadas}
 \label{chap:ef}
 
 Ilustra-se neste capitulo algumas maneiras de incluir figuras, tabelas, equações e outros elementos neste documento, obtendo indexação automática em suas respectivas listas.
@@ -218,6 +214,7 @@ Tabelas, quadros, gráficos e figuras são elementos utilizados em trabalhos aca
 No quadro \ref{quadroex1} apresenta-se alguns detalhes desses elementos.
 
 \begin{quadro}[H]
+\small
 	\centering
 	\caption{Alguns detalhes sobre elementos flutuantes}
 	\label{quadroex1}
@@ -230,7 +227,7 @@ No quadro \ref{quadroex1} apresenta-se alguns detalhes desses elementos.
 		\textbf{Divisão}    & Formada por linhas horizontais.                                                               & Formado por linhas horizontais e verticais.                                                 & -                                                                                   \\ \hline
 		\textbf{Formatação} & O número e o título da tabela devem vir acima dela, enquanto a fonte deve aparecer embaixo. & O número e o título do quadro devem vir acima dele, enquanto a fonte deve aparecer embaixo. & O número e o título devem aparecer no topo, enquanto a fonte deve aparecer embaixo. \\ \hline
 	\end{tabular}
-	\fonte{Elaborado pelo autor}
+	\fonte{16cm}{Elaborado pelo autor}
 \end{quadro}
 
 
@@ -243,12 +240,13 @@ De forma geral, a inserção desses elementos podem ser feitas em ambientes espe
    \caption{legenda}
    \label{"etiqueta"}
       inserção do elemento 
-   \fonte{fonte do elemento}
+   \fonte{tamanho do elemento}{fonte do elemento}
 \end{table}
 \end{verbatim}
 Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadroex2}.
 
 \begin{quadro}[H]
+\small
 	\centering
 	\caption{Alguns campos utilizados em elementos flutuantes}
 	\label{quadroex2}
@@ -257,16 +255,13 @@ Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadr
 	\verb|nome do ambiente| & \verb|figure|: para figuras, \verb|grafico|: para gráficos, \verb|table|: para tabelas e \verb|quadro|: para quadros\\ \hline
 	\verb|legenda| & Deve ser inserida como argumento no comando \verb|\caption{}| e refere-se a legenda do elemento flutuante.\\ \hline
 	\verb|"etiqueta"| & Deve ser inserida como argumento no comando \verb|\label{}| e consiste em um nome dado para referenciarmos àquele elemento flutuante no texto.\\ \hline
-	\verb|fonte do elemento| & Deve ser inserida como argumento no comando \verb|\fonte{}| e consiste da informação de onde retirou-se o elemento.\\ \hline
+	\verb|fonte do elemento| & Deve ser inserida como argumento no comando \verb|\fonte{}{}| e consiste da informação de onde retirou-se o elemento.\\ \hline
 	\end{tabular}
-	\fonte{Elaborado pelo autor}
+	\fonte{13cm}{Elaborado pelo autor}
 \end{quadro}
 
-\subsection{Exemplo de elementos flutuantes}
 
-Apresentamos nesta seção alguns exemplos de outros elementos flutuantes seguidos dos códigos utilizados para inseri-los.
-
-\subsubsection{Figuras e gráficos}
+\subsection{Figuras e gráficos}
 
 As figuras e gráficos são elementos ilustrativos, que podem ser em forma de fotos, mapas, gráficos, gravuras, etc.
 
@@ -277,7 +272,7 @@ Para uso avançado de imagens no \LaTeX, recomenda-se a consulta de literatura e
 	\centering
 	\caption{Logo do projeto \LaTeX.}
 	\includegraphics[width=13cm]{figuras/LaTeXproject.png}
-	\fonte{\textcite{LaTeX2009}}
+	\fonte{13cm}{\textcite{LaTeX2009}}
 	\label{fig:logo}
 \end{figure}
 
@@ -289,7 +284,7 @@ Inserimos a figura \ref{fig:logo} com o seguinte código:
    \centering
    \caption{Logo do projeto \LaTeX.}
    \includegraphics[width=13cm]{figuras/LaTeXproject.png}
-   \fonte{\textcite{LaTeX2009}}
+   \fonte{13cm}{\textcite{LaTeX2009}}
    \label{fig:logo}
 \end{figure}
 \end{verbatim}
@@ -298,95 +293,38 @@ No Gráfico \ref{gr:exgrafico} apresentamos um exemplo de gráfico.
 
 \begin{grafico}[H]
 \centering
-\caption{Evolução de matrículas dos Institutos Federais}
-\includegraphics[height=6cm]{./figuras/redefederal.jpg}	
-\fonte{MEC/SETEC}
+\caption{Evolução da Lei Orçamentária Anual (LOA) e número de matrículas IFMG}
+\includegraphics[width=0.85\linewidth]{./figuras/loa-e-matriculas.png}	
+\fonte{0.85\linewidth}{\textcite{ifmg2019mobilizacao}}
 \label{gr:exgrafico}
 \end{grafico}
 
 \begin{verbatim}
 \begin{grafico}[H]
-   \centering
-   \caption{Evolução de matrículas dos Institutos Federais}
-   \includegraphics[height=6cm]{./figuras/redefederal.jpg}	
-   \fonte{MEC/SETEC}
-   \label{gr:exgrafico}
+    \centering
+    \caption{Evolução da Lei Orçamentária Anual (LOA) e número de matrículas IFMG}
+    \includegraphics[width=0.85\linewidth]{./figuras/loa-e-matriculas.png}	
+    \fonte{0.85\linewidth}{\textcite{ifmg2019mobilizacao}}
+    \label{gr:exgrafico}
 \end{grafico}
 \end{verbatim}
 
-% Pode-se inserir gráficos diretamente no \LaTeX utilizando-se de pacotes como \verb|pgfplots, tikz|, entre outros. A figura \ref{fig:grafico} ilustra essa possibilidade com o pacote \verb|pgfplots|.
 
-% \begin{grafico}[H]
-% \centering
-% \caption{Exemplo de gráfico construído no \LaTeX}
-% \label{fig:grafico}
-%     \begin{tikzpicture}
-%     \begin{axis}[hide axis,colormap/cool,]
-%     \addplot3[mesh,samples =50,domain = -8:8,]
-%     {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
-%     \addlegendentry{$\frac{\sin(r)}{r}$}
-%     \end{axis}
-%     \end{tikzpicture}
-% \fonte{Elaborado pelo autor}
-% \end{grafico}
-
-\begin{verbatim}
-\begin{grafico}[H]
-\centering
-\caption{Exemplo de gráfico construído no \LaTeX}
-\label{grafico}
-    \begin{tikzpicture}
-    \begin{axis}[hide axis,colormap/cool,]
-    \addplot3[mesh,samples =50,domain = -8:8,]
-    {sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
-    \addlegendentry{$\frac{\sin(r)}{r}$}
-    \end{axis}
-    \end{tikzpicture}
-\fonte{Elaborado pelo autor}
-\end{grafico}
-\end{verbatim}
-
-\subsubsection{Tabelas}
+\subsection{Tabelas}
 As tabelas devem seguir as normas descritas por \textcite{ibge1993}. Sendo formadas por linhas horizontais, devem manter suas bordas laterais abertas e geralmente são utilizadas para dados quantitativos. Os quadros, por outro lado, são formados por linhas verticais e horizontais, devem ter todas suas extremidades fechadas e são mais utilizados para dados qualitativos.
 
-\textcite{abntex2classe} fornece, na classe \verb|abntex2|, a macro \verb|IBGEtab{}{}{}|, que tem por objetivo topo, corpo e rodapé das tabelas com alinhamento conforme descrito em \textcite{ibge1993}. Esta macro deve receber três argumentos para cada uma destas partes da tabela conforme exemplificado na tabela \ref{tab: residentes}. Para representação numérica correta dos dados da tabela, consulte \textcite{ibge1993}.
-
-\pagebreak
-\textbf{Exemplo de código para gerar a tabela \ref{tab: residentes} com a macro} \verb|IBGEtab{}{}{}|.
-
-\begin{verbatim}
-\begin{table}[H]
-\IBGEtab{
-   \caption{Pessoas Residentes em domicílios particulares, por sexo e situação do domicílio - Brasil - 1980}%
-   \label{tab: residentes}
-  }
-{
-\begin{tabular}{m{2cm}ccc}
-   \toprule
-   Situação do Total & Total & Mulheres & Homens \\
-   \midrule
-   Total & 117.960.301 & 59.595.332 & 58.364.969 \\
-   Urbana & 79.972.931 & 41.115.439 & 38.857.492 \\
-   Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
-   \bottomrule
-\end{tabular}
-}
-{
-   \fonte{IBGE}
-   \nota{Dados fictícios}
-}
-\end{table}
-\end{verbatim}
+\textcite{abntex2classe} fornece, na classe \verb|abntex2|, a macro \verb|IBGEtab{}{}{}|, que tem por objetivo topo, corpo e rodapé das tabelas com alinhamento conforme descrito em \textcite{ibge1993}. Esta macro deve receber três argumentos para cada uma destas partes da tabela conforme exemplificado na tabela \ref{tab:residentes}. Para representação numérica correta dos dados da tabela, consulte \textcite{ibge1993}.
 
 \begin{table}[H]
 \IBGEtab{
-  \caption{Pessoas Residentes em domicílios particulares, por sexo e situação do domicílio - Brasil - 1980}%
-  \label{tab: residentes}
-  }
+\centering
+\caption{Pessoas residentes em domicílios particulares, por sexo e situação do domicílio — Brasil — 1980}
+\label{tab:residentes}
+}
 {
-\begin{tabular}{m{2.0cm}ccc}
- \toprule
- Situação do Total & Total & Mulheres & Homens \\
+\begin{tabular}{m{2.5cm}ccc}
+\toprule
+Situação do domicílio & Total & Mulheres & Homens \\
 \midrule
 Total & 117.960.301 & 59.595.332 & 58.364.969 \\
 Urbana & 79.972.931 & 41.115.439 & 38.857.492 \\
@@ -395,10 +333,36 @@ Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
 \end{tabular}
 }
 {
-\fonte{IBGE}
-\nota{Dados fictícios}
+\fonte{10cm}{Fonte: Dados fictícios.}
 }
 \end{table}
+
+\textbf{Exemplo de código para gerar a tabela \ref{tab:residentes} com a macro} \verb|IBGEtab{}{}{}|.
+
+\begin{verbatim}
+\begin{table}[H]
+\IBGEtab{
+    \centering
+    \caption{Pessoas residentes em domicílios particulares, por sexo 
+        e situação do domicílio — Brasil — 1980}
+    \label{tab:residentes}
+}{
+    \begin{tabular}{m{2.5cm}ccc}
+    \toprule
+    Situação do domicílio & Total & Mulheres & Homens \\
+    \midrule
+    Total & 117.960.301 & 59.595.332 & 58.364.969 \\
+    Urbana & 79.972.931 & 41.115.439 & 38.857.492 \\
+    Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
+    \bottomrule
+    \end{tabular}
+}{
+    \fonte{10cm}{Fonte: Dados fictícios.}
+}
+\end{table}
+\end{verbatim}
+
+
 
 
 
@@ -421,7 +385,7 @@ Por exemplo, o código abaixo cria o quadro \ref{qua:ex}:
    \hline
    Texto da segunda linha & bla bla bla & bla bla bla  \\ \hline
    \end{tabular}
-   \fonte{Elaborado pelo autor}
+   \fonte{13cm}{Elaborado pelo autor}
 \end{quadro}
 \end{verbatim}
 
@@ -429,13 +393,13 @@ Por exemplo, o código abaixo cria o quadro \ref{qua:ex}:
    \centering
    \caption{Exemplo de quadro simples}
    \label{qua:ex}
-   \begin{tabular}{|m{4cm}|m{5cm}|m{3cm}|}
+   \begin{tabular}{|m{4cm}|m{4cm}|m{4cm}|}
    \hline
    \textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3}\\ \hline
    Texto aqui & Lorem ipsum dolor ...  & Ut accumsan sapien eget magna ... \\ \hline
    Texto da segunda linha & bla bla bla & bla bla bla  \\ \hline
    \end{tabular}
-   \fonte{Elaborado pelo autor}
+   \fonte{13cm}{Elaborado pelo autor}
 \end{quadro}
 
 \pagebreak

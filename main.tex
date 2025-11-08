@@ -1,38 +1,25 @@
 %   Modelo de trabalhos acadêmicos - IFRJ
 %   Autor: Andrey Dione Ferreira - <andrey.ferreira@ifrj.edu.br>
-%   Codificação utilizada: UTF-8
-%   Tamanho da tabulação: 4 (espaços)
-%	Atualizado em 01/06/2023
 
 % \documentclass{ifrjtex}  % Imprimir frente e verso
 \documentclass[oneside]{ifrjtex}  % Imprimir apenas frente
 
-%----------------------------
-% IMPORTAÇÃO DE PACOTES %
-%-----------------------------
-
-% \usepackage{smartdiagram} %Construção de diagramas
-% \usepackage[portuguese, onelanguage, lined, boxed, commentsnumbered, algoruled]{algorithm2e} % Escrever algoritmos
-% \usepackage{animate,pgfplots,multido} % Desenhar e fazer animações
-% \pgfplotsset{compat=1.16}
+% --- IMPORTAÇÃO DE PACOTES --- %
 \usepackage{verbatim}     % Texto é interpretado como escrito no documento
 \usepackage{multirow, array}    % Múltiplas linhas e colunas em tabelas
-% \usepackage{listings} % para impressão de códigos
 \usepackage{pdfpages} % para inserção de página em pdf
 
+% \usepackage{smartdiagram} %Construção de diagramas
+% \usepackage{animate,pgfplots,multido} % Desenhar e fazer animações
+% \pgfplotsset{compat=1.16}
+% \usepackage{listings} % para impressão de códigos
 
-%----
-%referências bibliográficas tratadas com biblatex
+% --- REFERÊNCIAS BIBLIOGRÁFICAS COM BibLaTeX --- %
 \addbibresource{refbase.bib} % base bibliográfica
-
-% Criando novos comandos ou redefinindo outros
-\renewcommand{\sin}{\mathrm{sen}}
 
 \makeindex % Cria o índice remissivo
 
-%----------------------------------------------
-% PREENCHER COM OS DADOS DO TRABALHO            
-%----------------------------------------------
+% --- DADOS DO TRABALHO --- %
 \titulo{Título do trabalho}
 \subtitulo{Subtítulo do trabalho}
 \autor{Nome Completo do Autor}
@@ -48,23 +35,13 @@
 %\coorientador[Coorientadora:]{Nome da coorientadora}
 \titulacaoCoorientador{Prof. Dr. }  % Caso não tenha, comente ou apague esta linha.
 \instCoorientador{Instituto Federal do Rio de Janeiro - IFRJ}  % Caso não tenha, comente ou apague esta linha.
-\date{2021} %Ano de defesa
+\date{2025} %Ano de defesa
 
 \preambulo{Trabalho de Conclusão de Curso submetido ao corpo docente do \imprimirinstituicao\, como requisito parcial para a obtenção do grau de Licenciado em Matemática.}
 
-%para projetos de pesquisa
+% --- para projetos de pesquisa --- %
 \areaconcentracao{Nome da área de concentração}
 % \areaconcentracao[Linha de pesquisa: ]{Nome da linha}
-%-----------------------------------------------
-% DADOS PARA CATALOGAÇÃO:  CONSULTAR BIBLIOTECA DO CAMPUS PARA DADOS DA TABELA CUTTER E CDU
-%-----------------------------------------------
-\TabelaCutter{????}        % Preencher ???? com Tabela Cutter (Ver na biblioteca do campus)
-\CDU{?????}      % Preencher com o código CDU (ver na biblioteca do Campus)
-\keywords{ 1. Palavra-chave1. 2. Palavra-chave2. 2. Palavra-chave3.} %Preencher com as palavras chaves (Conferir na biblioteca do campus)
-\sobrenomeAutor{ Sobrenome}   % Preencher com o último sobrenome do autor
-\NomeAutor{Nome ... ...}   % Preencher com o nome do autor com exceção do último sobrenome
-\sobrenomeOrientador{ Sobrenome ori }   % Preencher com o último sobrenome do orientador(a)
-\NomeOrientador{Nome orientador}   % Preencher com o nome do orientador(a) com exceção do último sobrenome
 
 
 %-----------------------
@@ -76,24 +53,23 @@
 %-----------------------
 % ELEMENTOS PRÉ-TEXTUAIS %
 %-----------------------
-    \pretextual
-    \imprimircapa
-    \imprimirfolhaderosto     % Folha de rosto
-    \include{elementos-pre-textuais/ficha-catalografica} %ficha catalográfica
-    \include{elementos-pre-textuais/folha-aprovacao}     % Folha de aprovação
-    \include{elementos-pre-textuais/dedicatoria}         % Dedicatória (ELEMENTO OPCIONAL)
-    \include{elementos-pre-textuais/agradecimentos}      % Agradecimentos  (ELEMENTO OPCIONAL)
-    \include{elementos-pre-textuais/epigrafe}            % Epígrafe (ELEMENTO OPCIONAL)
-    \include{elementos-pre-textuais/resumos}           % Resumos
-    
+\pretextual
+\imprimircapa
+\imprimirfolhaderosto     % Folha de rosto
+\includepdf{elementos-pre-textuais/ficha-catalografica} %ficha catalográfica
+\include{elementos-pre-textuais/folha-aprovacao}     % Folha de aprovação
+\include{elementos-pre-textuais/dedicatoria}         % Dedicatória (ELEMENTO OPCIONAL)
+\include{elementos-pre-textuais/agradecimentos}      % Agradecimentos  (ELEMENTO OPCIONAL)
+\include{elementos-pre-textuais/epigrafe}            % Epígrafe (ELEMENTO OPCIONAL)
+\include{elementos-pre-textuais/resumos}           % Resumos
 
-    \pdfbookmark[0]{\listfigurename}{lof} \listoffigures*  \cleardoublepage  % Lista de figuras (OPCIONAL)
-    \pdfbookmark[0]{\listfigurename}{log} \listofgraficos*  \cleardoublepage  % Lista de gráficos (OPCIONAL)
-    \pdfbookmark[0]{\listtablename}{lot} \listoftables* \cleardoublepage      % Lista de tabelas (OPCIONAL)
-    \pdfbookmark[0]{\listofquadrosname}{loq} \listofquadros* \cleardoublepage % Lista de quadros (OPCIONAL)
-    
-    \include{elementos-pre-textuais/lista-siglas}        % Lista de abreviaturas e siglas (OPCIONAL)
-    \include{elementos-pre-textuais/lista-simbolos}      % Lista de símbolos (OPCIONAL)
+
+\listadefiguras % Lista de figuras (OPCIONAL)
+\listadegraficos % Lista de gráficos (OPCIONAL)
+\listadetabelas % Lista de tabelas (OPCIONAL)
+\listadequadros % Lista de quadros (OPCIONAL)
+\include{elementos-pre-textuais/lista-siglas}   % Lista de abreviaturas e siglas (OPCIONAL)
+\include{elementos-pre-textuais/lista-simbolos} % Lista de símbolos (OPCIONAL)
 
 %-----------------------
 % Documento: Sumário

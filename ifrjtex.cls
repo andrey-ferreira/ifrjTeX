@@ -26,6 +26,7 @@
     brazil,                     % Idioma do documento
     }{abntex2}
 
+
 % opção para projeto de pesquisa
 \providecommand{\IFRJprojeto}{false}
 \DeclareOption{projeto}{
@@ -116,8 +117,16 @@
 \renewcommand{\cftgraficoname}{\graficoname\space}
 \renewcommand*{\cftgraficoaftersnum}{\hfill--\hfill}
 
+%simplificando a impressão de listas
+\newcommand{\listadefiguras}{\pdfbookmark[0]{\listfigurename}{lof} \listoffigures*  \cleardoublepage }
+\newcommand{\listadegraficos}{\pdfbookmark[0]{\listfigurename}{log} \listofgraficos*  \cleardoublepage}
+\newcommand{\listadetabelas}{\pdfbookmark[0]{\listtablename}{lot} \listoftables* \cleardoublepage}
+\newcommand{\listadequadros}{\pdfbookmark[0]{\listofquadrosname}{loq} \listofquadros* \cleardoublepage 
+}
+
 %fonte no caption
 \RequirePackage[font=small]{caption}
+
 %----------------------------------------
 % ESTILO DE ELEMENTOS % 
 %----------------------------------------
@@ -205,18 +214,22 @@
 % OBJETOS FLUTUANTES %
 %----------------------------------------
 % Comando que trata a fonte nos objetos flutuantes
-\renewcommand{\fonte}[1]{%
-    \begin{SingleSpacing}\par\end{SingleSpacing}
-    \centering\small{{Fonte} -- #1}
+\renewcommand{\fonte}[2]{%
+  \vspace{2pt}% pequeno espaço antes da fonte
+  \begin{minipage}{#1} % largura passada como argumento
+  \vskip6pt
+    \raggedright
+    \footnotesize Fonte: #2
+  \end{minipage}%
 }
 
-% Comando que trata as notas nos objetos flutuantes
-\renewcommand{\nota}[1]{%
-    \begin{SingleSpacing}\par\end{SingleSpacing}
-    \begin{tabular}{l p{.85\textwidth}}%
-        Nota: & #1
-    \end{tabular}
-}
+% % Comando que trata as notas nos objetos flutuantes
+% \renewcommand{\nota}[1]{%
+%     \begin{SingleSpacing}\par\end{SingleSpacing}
+%     \begin{tabular}{l p{.85\textwidth}}%
+%         Nota: & #1
+%     \end{tabular}
+% }
 
 %----------------------------------------
 % PARÁGRAFOS 
@@ -385,7 +398,7 @@
  \bfseries \large  \imprimirinstituicao \\[0.35cm] \textit{Campus} \imprimirlocal \\[0.35cm] \imprimirprograma \\
 
 \vspace{\stretch{1}}
-{\fontfamily{cmr}\scshape\textbf\imprimirautor}\\
+{\fontfamily{cmr}\textbf\imprimirautor}\\
 \vspace{\stretch{1}}
 
 {
@@ -398,8 +411,8 @@
 
 \vspace{\stretch{2}}
 	\large
-	\fontfamily{cmr}\scshape{\imprimirlocal}\\
-	\fontfamily{cmr}\scshape{\imprimirdata}
+	\fontfamily{cmr}{\imprimirlocal}\\
+	\fontfamily{cmr}{\imprimirdata}
 \end{minipage}
 \end{flushright}
 }
@@ -414,7 +427,7 @@
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
-        {\large\fontfamily{cmr}\scshape\bfseries {\imprimirautor}\par
+        {\large\fontfamily{cmr}\bfseries {\imprimirautor}\par
         }
     \vspace*{\fill}
     {\Large
@@ -444,7 +457,7 @@
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
-        {\large\fontfamily{cmr}\scshape\bfseries {\imprimirautor}\par
+        {\large\fontfamily{cmr}\bfseries {\imprimirautor}\par
         \imprimirorientador\par
     \ifthenelse{\not\equal{\imprimircoorientador}{}}{ 
         \imprimircoorientador \par
@@ -476,7 +489,7 @@
 \makeatletter
     \renewcommand{\imprimirfolhaderosto}{
     \begin{center}
-        {\large\fontfamily{cmr}\scshape\textbf{\imprimirautor}\par}
+        {\large\fontfamily{cmr}\textbf{\imprimirautor}\par}
     \vspace*{\fill}
     {\Large 
     \MakeUppercase{\imprimirtitulo}\ifthenelse{\not\equal{\imprimirsubtitulo}{}}{: \par\MakeUppercase{ \imprimirsubtitulo}
@@ -519,7 +532,9 @@
 \RequirePackage{icomma}     % Uso de vírgulas em expressões matemáticas
 \RequirePackage{ragged2e}
 
+% --------------------------
 % Fontes
+% --------------------------
 % \RequirePackage{utopia}
 % \RequirePackage[T1]{fontenc} %Codificação da fonte em 8 bits
 
@@ -529,8 +544,11 @@
 % \RequirePackage[default]{gfsbodoni}
 % \RequirePackage[T1]{fontenc}
 
+\RequirePackage[scaled=0.92]{helvet}  % Usa Helvetica (parecida com Arial)
+\renewcommand{\familydefault}{\sfdefault}  % Define como fonte padrão
 
-\RequirePackage{lmodern}
+
+% \RequirePackage{lmodern}
 % \RequirePackage[T1]{fontenc}
 
 % \RequirePackage{fourier}
@@ -541,22 +559,18 @@
 \RequirePackage{MnSymbol}
 
 %-------------------------------------------------
-% Referências
+% Ajuste das Referências
 \RequirePackage[style = abnt]{biblatex}
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\normalfont\url{#1}}%
-
 \setlength{\bibitemsep}{15pt}
-\appto{\bibsetup}{%
-    \renewcommand{\baselinestretch}{1.0}
-}%
+\appto{\bibsetup}{ \renewcommand{\baselinestretch}{1.0}}%
+\renewcommand*{\mkbibnamefamily}[1]{#1}% Norma NBR10.520/2023 - Sobrenomes em minúsculas
 
-\renewcommand*{\mkbibnamefamily}[1]{#1}%
-% Norma NBR10.520/2023 - Sobrenomes em minúsculas
+
 % OUTRAS FORMATAÇÕES
 
-
 \RequirePackage{color}
-\RequirePackage[usenames,dvipsnames]{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 % Para cronogramas
 
 \RequirePackage{enumitem}
@@ -576,3 +590,4 @@
     % bar label node/.append style={align=left},
     bar/.style={fill=RoyalBlue!90!black}
 }
+
