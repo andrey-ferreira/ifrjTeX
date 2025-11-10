@@ -2,13 +2,9 @@
 % Autor: Andrey Dione Ferreira - <andrey.ferreira@ifrj.edu.br>
 % Dependência: abntex2 >= 1.7
 
-
-% -----------------------------------------------
-% Declaracao da classe ifrjtex como uma extensão da classe abntex2
-% -----------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ifrjtex}[2015/11/20 v1.0]
-
+% \ProvidesClass{ifrjtex}[2015/11/20 v1.0]
+\ProvidesClass{ifrjtex}[2025/11/08 v4.0]
 
 \PassOptionsToClass{%
     % Opções da classe memoir
@@ -19,7 +15,7 @@
     % sumario=abnt-6027-2012,
     % Opções da classe abntex2
     chapter=TITLE,             % Títulos de capítulos convertidos em letras maiúsculas
-    % section=TITLE,             % Títulos de seções convertidos em letras maiúsculas
+    section=TITLE,             % Títulos de seções convertidos em letras maiúsculas
     %subsection=TITLE,          % Títulos de subseções convertidos em letras maiúsculas
     %subsubsection=TITLE,       % Títulos de sub-subseções convertidos em letras maiúsculas
     % Opções do pacote babel
@@ -34,14 +30,12 @@
 % \PassOptionsToClass{projeto}{abntex2}
 }
 
-
 % opção para artigo
 \providecommand{\IFRJartigo}{false}
 \DeclareOption{artigo}{
 	\renewcommand{\IFRJartigo}{true}
 %\PassOptionsToClass{artigo}{abntex2}
 }
-
 
 % Repassa as demais opções à abntex2
 \DeclareOption*{%
@@ -225,7 +219,8 @@
 
 % % Comando que trata as notas nos objetos flutuantes
 % \renewcommand{\nota}[1]{%
-%     \begin{SingleSpacing}\par\end{SingleSpacing}
+% \footnotesize
+%     \begin{SingleSpacing}\end{SingleSpacing}
 %     \begin{tabular}{l p{.85\textwidth}}%
 %         Nota: & #1
 %     \end{tabular}
@@ -236,27 +231,31 @@
 %----------------------------------------
 % Tamanho da endentação do parágrafo
 \setlength{\parindent}{1.3cm}
-
 % Espaçamento entre um parágrafo e outro
 \setlength{\parskip}{1.5pt}
 
 %----------------------------------------
 % REDEFINIÇÃO DE FONTES
 %----------------------------------------
+\RequirePackage{textcase} % fornece \MakeTextUppercase (robusto)
 \renewcommand{\ABNTEXpartfont}{\Huge\bfseries}
 \renewcommand{\ABNTEXpartfontsize}{\ABNTEXchapterfontsize}
 
-\renewcommand{\ABNTEXchapterfont}{\sffamily}
-\renewcommand{\ABNTEXchapterfontsize}{\huge}
+\renewcommand{\ABNTEXchapterfont}{\sffamily\bfseries}
+\renewcommand{\ABNTEXchapterfontsize}{\Large}
 
 \renewcommand{\ABNTEXsectionfont}{\sffamily}
-\renewcommand{\ABNTEXsectionfontsize}{\Large}
+\renewcommand{\ABNTEXsectionfontsize}{\large}
 
-\renewcommand{\ABNTEXsubsectionfont}{\sffamily}
-\renewcommand{\ABNTEXsubsectionfontsize}{\large}
+\renewcommand{\ABNTEXsubsectionfont}{\sffamily\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
 
-\renewcommand{\ABNTEXsubsubsectionfont}{\sffamily}
+\renewcommand{\ABNTEXsubsubsectionfont}{\sffamily\itshape}
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+% ESPAÇAMENTOS DOS TÍTULOS
+\setlength{\beforechapskip}{0pt}  
+\setlength{\afterchapskip}{16pt}   
 
 %----------------------------------------
 % SUMÁRIO
@@ -402,10 +401,10 @@
 \vspace{\stretch{1}}
 
 {
-\huge\bfseries
+\Large\bfseries
 \imprimirtitulo
 \abntex@ifnotempty{\imprimirsubtitulo}{%
-		{\ABNTEXchapterfont\huge:\par}{\imprimirsubtitulo}
+		{\ABNTEXchapterfont\Large:\par}{\imprimirsubtitulo}
 	}\par
 }
 
@@ -421,7 +420,6 @@
 %----------------------------------------
 % FOLHA DE ROSTO 
 %----------------------------------------
-
 
 \ifthenelse{\equal{\IFRJprojeto}{true}}{%projeto
 \makeatletter
@@ -521,7 +519,6 @@
 }
 }
 
-
 %----------------------------------------
 % Diversos Pacotes
 %----------------------------------------
@@ -546,7 +543,10 @@
 
 \RequirePackage[scaled=0.92]{helvet}  % Usa Helvetica (parecida com Arial)
 \renewcommand{\familydefault}{\sfdefault}  % Define como fonte padrão
+% \RequirePackage{MnSymbol}
 
+% \usepackage[helvet]{newtxsf}
+% \usepackage{sansmathfonts}
 
 % \RequirePackage{lmodern}
 % \RequirePackage[T1]{fontenc}
@@ -556,22 +556,25 @@
 
 % \RequirePackage{CormorantGaramond}
 
-\RequirePackage{MnSymbol}
-
-%-------------------------------------------------
+% --------------------------
 % Ajuste das Referências
+% --------------------------
+\RequirePackage{xurl} % permite quebra de URLs em mais pontos
+\def\UrlBreaks{\do\/\do-\do\_\do\.\do\%\do\=\do\&\do\?\do\#}
+\RequirePackage{csquotes}
+
 \RequirePackage[style = abnt]{biblatex}
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\addspace\normalfont\url{#1}}%
-\setlength{\bibitemsep}{15pt}
+\setlength{\bibitemsep}{12pt}
 \appto{\bibsetup}{ \renewcommand{\baselinestretch}{1.0}}%
 \renewcommand*{\mkbibnamefamily}[1]{#1}% Norma NBR10.520/2023 - Sobrenomes em minúsculas
 
 
+% --------------------------
 % OUTRAS FORMATAÇÕES
-
-\RequirePackage{color}
-\RequirePackage[dvipsnames]{xcolor}
-% Para cronogramas
+% --------------------------
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\RequirePackage{xcolor}
 
 \RequirePackage{enumitem}
 \newlist{etapas}{enumerate}{1}% 
@@ -591,3 +594,60 @@
     bar/.style={fill=RoyalBlue!90!black}
 }
 
+%---------------------
+% pacote listing
+%---------------------
+\usepackage{silence}
+\WarningFilter{latex}{Command \showhyphens has changed}
+
+\RequirePackage{listings}
+
+ %--- Definição de cores ---
+\definecolor{codegray}{RGB}{245,245,245} % fundo cinza claro
+\definecolor{framegray}{RGB}{200,200,200} % borda cinza suave
+\definecolor{darkgray}{RGB}{60,60,60}     % texto escuro
+
+% --- Configuração dos acentos (forma estável) Listings ---
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+	literate=%
+	{á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {â}{{\^a}}1%
+	{Á}{{\'A}}1 {À}{{\`A}}1 {Ã}{{\~A}}1 {Â}{{\^A}}1%
+	{é}{{\'e}}1 {ê}{{\^e}}1 {É}{{\'E}}1 {Ê}{{\^E}}1%
+	{í}{{\'i}}1 {Í}{{\'I}}1%
+	{ó}{{\'o}}1 {ô}{{\^o}}1 {õ}{{\~o}}1 {Ó}{{\'O}}1 {Ô}{{\^O}}1 {Õ}{{\~O}}1%
+	{ú}{{\'u}}1 {Ú}{{\'U}}1%
+	{°}{{$^{\circ}$}}1
+	{ç}{{\c{c}}}1 {Ç}{{\c{C}}}1
+}
+
+\lstdefinelanguage{LaTeX}{
+  morekeywords={documentclass,usepackage,begin,end,section,subsection,caption,label,includegraphics,textbf,textit,emph,maketitle,title,author,date,chapter,part,table,figure,centering,ref,footnote,item,itemize,enumerate},
+  sensitive=true,
+  morecomment=[l]{\%},   
+  morestring=[b]"
+}
+
+\lstset{
+  language=LaTeX,
+  backgroundcolor=\color{codegray},
+  frame=single,
+  rulecolor=\color{framegray},
+  basicstyle=\ttfamily\footnotesize\color{darkgray},
+  keywordstyle=\color{black}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{black},
+  breaklines=true,
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+  showstringspaces=false,
+  numbers=none,
+  aboveskip=6pt,
+  belowskip=6pt,
+  framexleftmargin=4pt,
+  framexrightmargin=4pt,
+  framesep=4pt,
+  tabsize=2,
+  keepspaces=true,
+  columns=flexible
+}

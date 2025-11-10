@@ -1,327 +1,282 @@
-%
-% Documento: Trabalhos Relacionados
-%
 \chapter{Uso do modelo}
 
-Por se tratar de uma extensão da classe \verb|abntex2|, todas as opções, ambientes e macros da classe \verb|abntex2|\cite{abntex2classe}
-e \verb|memoir|\cite{madsen2021memoir} podem ser utilizadas.
+Por se tratar de uma extensão da classe \verb|abntex2|, o modelo herda todas as opções, ambientes e comandos definidos tanto na própria classe \verb|abntex2| \autocite{abntex2classe} quanto na classe \verb|memoir| \autocite{madsen2021memoir}.  
+Dessa forma, o usuário pode utilizar normalmente todos os recursos já disponíveis nessas classes.
 
+\section{Opções da classe \texttt{ifrjtex}}
 
-\section{Opções para a classe \texttt{ifrjtex}}
+A classe \texttt{ifrjtex} oferece as opções \verb|artigo| e \verb|projeto|, que ajustam automaticamente a folha de rosto conforme o formato exigido pelo \textcite{ifrjtccs}.  
 
-As opções \verb|artigo| e \verb|projeto| podem ser passadas ao carregar a classe para que a folha de rosto seja ajustada automaticamente ao formato exigido pelo Manual de Apresentação de Trabalhos Acadêmicos \cite{ifrjtccs}.
-
-Caso o usuário opte por editar estes elementos, recomendamos que seja redefinida as macros específicas para a impressão dos mesmos fornecidas pela \verb|abntex2|\cite{abntex2classe}.
+Caso o usuário prefira editar manualmente esses elementos, recomenda-se redefinir as macros específicas responsáveis por sua impressão, fornecidas pela classe \verb|abntex2|.
 
 \subsection{Projetos de Pesquisa}
-Conforme definido no Manual de Apresentação de Trabalhos Acadêmicos, a estrutura de um projeto podem variar conforme as normas estabelecidas pela instituição.
-\begin{citacao}
-O projeto de pesquisa é um planejamento das etapas do trabalho que será desenvolvido. Sua estrutura pode variar de acordo com as normas estabelecidas pela instituição, sendo constituído pela parte externa e pela parte interna. A externa constitui-se de capa (obrigatória), e a interna é organizada por elementos pré-textuais, elementos textuais e elementos pós-textuais.\cite[p. 73]{ifrjtccs}.
-\end{citacao}
 
-Para que o modelo imprima os elementos pré-textuais com os elementos exigidos no Manual, a opção \verb|projeto| pode ser passada à classe quando a mesma for selecionada, conforme segue.
-
-\textbackslash\texttt{documentclass[projeto]\{ifrjtex\}}
-
-No entanto, ao construir este modelo em \LaTeX, o autor disponibilizou, além dos elementos exigidos, a macro \verb|\areaconcentracao{}|, visto que muitos programas podem exigir entregas de projetos vinculados à áreas de concentração ou linhas de pesquisa, por exemplo. Dessa forma, optou-se por imprimir na folha de rosto a entrada da macro \verb|\areaconcentracao{}| caso esta seja preenchida.
-
-Os dados da macro \verb|\areaconcentracao{}| são impressos por padrão na folha de rosto após o preâmbulo com o rótulo ``\textbf{Área de concentração: }''.
-
-Caso o usuário queira modificar esse rótulo, pode-se passar um novo rótulo como opção para a macro \verb|\areaconcentracao{}|. Por exemplo, se no preâmbulo o usuário substituir \verb|\areaconcentracao{Nome da área de concentração}| por \\ \verb|\areaconcentracao[Linha de pesquisa: ]{Nome da linha}|, será impresso o rótulo ``\textbf{Linha de pesquisa: }'' no lugar de ``\textbf{Área de concentração: }''.
-
-\subsection{Artigos}
-Segundo orientações do Manual de Apresentação de Trabalhos Acadêmicos
-\begin{citacao}
-Os autores dos artigos submetidos em periódicos externos e de acesso livre, que utilizaram esse tipo de publicação como TCC, deverão comunicar à
-Biblioteca do campus onde cursaram sobre a existência da pesquisa, enviando uma cópia do artigo para depósito no repositório institucional (RI) do IFRJ, observando a obrigatoriedade da utilização dos seguintes elementos pré- textuais:\\
-    a) capa: elemento obrigatório, deverá ser feita conforme o modelo no Apêndice A e o especificado na seção 2.1;\\
-    b) folha de rosto: elemento obrigatório, contém os elementos essenciais à identificação do artigo, de acordo com Apêndice E;\\
-   c)verso da folha de rosto: elemento obrigatório, contém a ficha catalográfica confeccionada obrigatoriamente por um bibliotecário da Instituição;\\
-    d)folha de aprovação: elemento obrigatório, contém os elementos essenciais à aprovação do trabalho. Após a assinatura da banca, a folha deve ser digitalizada e inserida no documento digital. \cite[p. 102]{ifrjtccs}.
-\end{citacao}
-
-Para que o modelo imprima esses elementos em conformidade com o Manual, a opção \verb|artigo| pode ser passada à classe quando a mesma for selecionada, conforme segue.
-
-\textbackslash\texttt{documentclass[artigo]\{ifrjtex\}}
-
-Para inserção do artigo submetido em periódicos externos e de acesso livre, recomendamos que o autor utilize após a folha de aprovação o comando \\ \noindent\verb|\includepdf[pages=-]{myfile.pdf}| fornecido pelo pacote \verb|pdfpages| \cite{pdfpages}.
-
-
-
-
-\section{Referências bibliográficas e citações}
-
-Nesta versão da classe, optamos por utilizar o tratamento das referências bibliográficas com o {\ttfamily biblatex} e o estilo \texttt{abnt}, visto que
-\begin{citacao}
-Sendo totalmente implementado em \LaTeX, ele substitui os arquivos de estilo \verb|bibtex abntex2-alf.bst, abntex2-num.bst| e o pacote \verb|abntex2cite.sty| descrito neste manual. Com isso, o \verb|biblatex-abnt| deve aposentar os estilos de formatação do \verb|abntex2cite| e utilizar exclusivamente o \verb|biblatex-abnt| e as macros padrões do Bib\LaTeX. \cite[p. 3]{araujopacote}
-\end{citacao}
-
-Recomendamos que seja lida as referências específicas dos pacotes \verb|biblatex-abnt| disponíveis em \url{https://www.ctan.org/pkg/biblatex-abnt}.
-
-Conforme orientado por \textcite{marquesbiblatex}, o \verb|biblatex-abnt 3.4| requer \verb|biblatex 3.8| e \verb|biber 2.8| e caso haja algum problema na compilação, cheque se seus pacotes estão atualizados.
-
-Exemplos de entrada para o \verb|biblatex|, semelhantes aos encontrados no arquivo \verb|refbase.bib| deste projeto, podem ser encontradas em \textcite{marquesbiblatex} e todas as possíveis entradas, distinguindo entre campos obrigatórios e opcionais podem ser consultadas na obra \citetitle{lehman2006biblatex}. Além disso, todas as saídas geradas conforme a NBR 10520:2002 usando o sistema autor-data podem ser consultadas em \textcite{marquesexemplos}.
-
-Recomenda-se ainda que o potencial usuário deste modelo utilize gerenciadores de bases bibliográficas como o \textcite{Zotero} e \textcite{JabRef2009}.
-
-\subsection{Citações livres}\label{citacoesLivres}
-Citações são trechos transcritos ou informações retiradas das publicações consultadas para a realização do trabalho.
-As citações são utilizadas no texto com o propósito de esclarecer, completar, embasar ou corroborar as ideias do autor.
-
-Todas as publicações consultadas e efetivamente utilizadas (através de citações) devem ser listadas, obrigatoriamente, nas referências bibliográficas, de forma a preservar os direitos autorais e intelectuais.
-
-Na utilização de citações, normalmente, utiliza-se referências.
-Para cada tipo de referência presente no texto será apresentado um exemplo do comando utilizado para criá-lo.
-
-Há basicamente dois tipos de citações: citações livres e citações literais.
-
-Nas citações livres, reproduzem-se as ideias e informações de um autor, sem, entretanto, ``copiar letra por letra'' o texto do autor.
-Há várias maneiras de se fazer uma citação livre, como mostra os exemplos abaixo.
-
-Por outro lado, \textcite{maturana:2003} defende um princípio de lógica.
-Para o autor, quando dizemos \ldots
-
-Além disso, \textcite{teste:2004} argumenta que \ldots\mbox{ }Observe o detalhe do termo \textit{et al}.
-que deve ser utilizado quando o trabalho citado possui mais de três autores.
-Esse recurso é automatizado pelo estilo {\ttfamily abntex2}\index{ABNT!abntex2}.
-Caso não haja desejo em abreviar o nome dos demais autores através do termo \textit{et al.}, deve-se incluir a opção {\ttfamily abnt-no-etal-label}.
-
-Para evitar uma interrupção na sequência do texto, o que poderia, eventualmente, prejudicar a leitura, pode-se indicar a fonte entre parênteses imediatamente após a citação livre.
-Porém, neste caso específico, o nome do autor deve vir em caixa alta, seguido do ano da publicação, como no exemplo a seguir.
-
-\cite{BibTeX2009}
-
-\subsection{Citações literais}\label{citacoesLiterais}
-Nas citações literais, reproduzem-se as ideias e informações de um autor, exatamente como este a expressou, ou seja, faz-se uma ``cópia letra por letra'' do texto do autor.
-Há várias maneiras de se fazer uma citação literal, como mostra os exemplos abaixo.
-
-As citações longas (mais de 3 linhas) devem usar um parágrafo específico para ela, na forma de um texto recuado (4 cm da margem esquerda), com tamanho de letra menor do aquela utilizada no texto e espaçamento simples entre as linhas, seguido dos sobrenomes dos autores em caixa alta (separados por ponto e vírgula), ano de publicação e número da página.
-Veja o exemplo abaixo.
+De acordo com o Manual de Apresentação de Trabalhos Acadêmicos do IFRJ:
 
 \begin{citacao}
-Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é a possibilidade do sujeito de pensar e de refletir, e a objetividade científica.
-Encontramo-nos num ponto em que o conhecimento científico está sem consciência.
-Sem consciência moral, sem consciência reflexiva e também subjetiva.
-Cada vez mais o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa. \cite[p.28]{morinmoigne:2000}.
+O projeto de pesquisa é um planejamento das etapas do trabalho que será
+desenvolvido. Sua estrutura pode variar de acordo com as normas estabelecidas pela
+instituição, sendo constituído pela parte externa e pela parte interna. A externa
+constitui-se de capa (obrigatória), e a interna é organizada por elementos pré-textuais, elementos textuais e elementos pós-textuais.  \autocite[p. 82]{ifrjtccs}
 \end{citacao}
 
-Para se criar o efeito demonstrado na citação anterior, deve-se utilizar o ambiente \texttt{citacao}.
+Para gerar automaticamente os elementos pré-textuais definidos no Manual, basta carregar a classe com a opção \verb|projeto|:
+
 \begin{verbatim}
-\begin{citacao}
-    Desse modo, opera-se uma ruptura decisiva entre a reflexividade
-    filosófica, isto é a possibilidade do sujeito de pensar e de refletir,
-    e a objetividade científica. Encontramo-nos num ponto em que o 
-    conhecimento científico está sem consciência.
-    Sem consciência moral, sem consciência reflexiva e também subjetiva.
-    Cada vez mais o desenvolvimento extraordinário do conhecimento 
-    científico vai tornar menos praticável a própria possibilidade 
-    de reflexão do sujeito sobre a sua pesquisa. \cite[p.28]{morinmoigne:2000}.
-\end{citacao}
+\documentclass[projeto]{ifrjtex}
 \end{verbatim}
 
-% Opcionalmente, pode-se referenciar os autores no corpo de texto (citação indireta), e em seguida colocar a citação literal, em um novo parágrafo recuado.
-% Note que pode após a citação literal não mais aparece o nome dos autores, visto que já se encontra no texto.
-% Veja o exemplo seguinte.
+Além dos elementos obrigatórios, a classe oferece a macro adicional \verb|\areaconcentracao{}|, voltada a cursos que exigem a indicação de área de concentração ou linha de pesquisa.  
+Quando preenchida, essa informação é impressa na folha de rosto, logo após o preâmbulo, com o rótulo padrão “\textbf{Área de concentração:}”.
 
-% \textcite{morinmoigne:2000}, ao fazerem as suas críticas à ciência, explicitam uma ideia coletiva:
+O rótulo pode ser alterado facilmente. Por exemplo:
 
-% \begin{citacao}
-% Mas o curioso é que o conhecimento científico que descobriu os meios realmente extraordinários para, por exemplo, ver aquilo que se passa no nosso sol, para tentar conceber a estrutura das estrelas extremamente distantes, e até mesmo para tentar pesar o universo, o que é algo de extrema utilidade, o conhecimento científico que multiplicou seus meios de observação e de concepção do universo, dos objetos, está completamente cego, se quiser considerar-se apenas a si próprio! \cite[p.~33]{morinmoigne:2000}
-% \end{citacao}
+\begin{verbatim}
+\areaconcentracao[Linha de pesquisa: ]{Nome da linha}
+\end{verbatim}
 
-As citações curtas (menos de 3 linhas) devem ser inseridas diretamente no texto (entre aspas), seguida do nome do autor (em caixa alta), ano e página, como no exemplo a seguir.
+Nesse caso, o texto impresso será “\textbf{Linha de pesquisa:}” em vez de “\textbf{Área de concentração:}”.
 
-Então significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar'' \cite[p.~35]{maturana:2003}.
+\subsection{Artigos}
 
-O conhecimento de \textcite[p.~35]{maturana:2003} aponta que isto significa apenas que ``assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar''.
+Segundo o Manual de Apresentação de Trabalhos Acadêmicos:
 
-Finalmente, e isto vale para citações curtas ou longas, caso seja necessário inserir, no meio de uma citação uma palavra ou frase curta de sua autoria, que sirva para clarear ou completar a frase do autor citado, isto deve ser feito colocando a citação entre aspas.
-O comentário deverá ser inserido sem aspas.
-Ou seja, todo texto da citação deverá ficar envolvido por aspas.
-O exemplo abaixo apresenta o resultado esperado.
+\begin{citacao}
+Os autores de artigos submetidos a periódicos externos e de acesso livre, que utilizaram esse tipo de publicação como TCC, deverão comunicar à Biblioteca do campus sobre a existência da pesquisa, enviando uma cópia do artigo para depósito no Repositório Institucional (RI) do IFRJ. É obrigatória a inclusão dos seguintes elementos pré-textuais:  
+a) capa, conforme o modelo do Apêndice A e seção 2.1;  
+b) folha de rosto, conforme o Apêndice E;  
+c) verso da folha de rosto, com ficha catalográfica elaborada por bibliotecário da Instituição;  
+d) folha de aprovação, contendo as assinaturas da banca, que deve ser digitalizada e inserida no documento digital. \autocite[p. 102]{ifrjtccs}
+\end{citacao}
 
-Significa apenas que ``assumo que não posso fazer referência a entidades'' objetivas no sentido tradicional ``independentes de mim para construir meu explicar''. {\cite[p.~35]{maturana:2003}}.
+Para gerar automaticamente esses elementos, utilize a opção \verb|artigo| ao carregar a classe:
 
-\subsection{Comandos para citações}\label{referenciasUtilizadas}
+\begin{verbatim}
+\documentclass[artigo]{ifrjtex}
+\end{verbatim}
 
-Alguns exemplos de citação (comando seguido do resultado para o estilo alfabético):
+Para inserir o artigo publicado, recomenda-se o uso do pacote \verb|pdfpages| \autocite{pdfpages}, conforme o exemplo:
+
+\begin{verbatim}
+\includepdf[pages=-]{meuartigo.pdf}
+\end{verbatim}
+
+\section{Referências e citações}
+
+Esta classe utiliza o pacote \verb|biblatex| com o estilo \verb|abnt|, em substituição aos estilos tradicionais do \verb|bibtex|.  
+Conforme indicado por \textcite{araujopacote}:
+
+\begin{citacao}
+Sendo totalmente implementado em \LaTeX, o \verb|biblatex-abnt| substitui os arquivos de estilo \verb|bibtex| (\texttt{abntex2-alf.bst}, \texttt{abntex2-num.bst}) e o pacote \texttt{abntex2cite.sty}. Assim, deve-se utilizar exclusivamente o \verb|biblatex-abnt| e as macros padrão do Bib\LaTeX. \autocite[p. 3]{araujopacote}
+\end{citacao}
+
+É recomendável consultar a documentação completa do pacote em\\ \url{https://www.ctan.org/pkg/biblatex-abnt}.  
+De acordo com \textcite{marquesbiblatex}, o \verb|biblatex-abnt 3.4| requer as versões \verb|biblatex 3.8| e \verb|biber 2.8|.  
+Caso ocorram erros de compilação, verifique se os pacotes estão atualizados.
+
+Exemplos de entradas compatíveis com o arquivo \verb|refbase.bib| podem ser encontrados em \textcite{marquesbiblatex}.  
+A lista completa de tipos de entrada e campos disponíveis está em \citetitle{lehman2006biblatex}.  
+Para organização das referências, recomenda-se o uso de gerenciadores como \textcite{Zotero} e \textcite{JabRef2009}.
+
+\subsection{Citações livres}\label{citacoesLivres}
+
+As citações livres reproduzem as ideias de um autor sem transcrever literalmente seu texto.  
+Servem para embasar, explicar ou relacionar argumentos do trabalho.  
+Todas as obras citadas devem obrigatoriamente constar nas referências, garantindo o respeito aos direitos autorais.
+
+\textcite{maturana:2003} defende um princípio de lógica segundo o qual “quando dizemos \ldots”.  
+Já \textcite{teste:2004} argumentam que \ldots\mbox{ }O uso do termo \textit{et al.} é automático quando há mais de três autores, mas pode ser desativado com a opção \verb|abnt-no-etal-label|.
+
+Também é possível inserir a referência entre parênteses, conforme o exemplo:
+
+\begin{quote}
+(\textsc{AUTOR}, ano)
+\end{quote}
+
+\subsection{Citações literais}\label{citacoesLiterais}
+
+As citações literais reproduzem fielmente as palavras do autor.  
+Citações com mais de três linhas devem ser destacadas em parágrafo recuado (4 cm da margem esquerda), com fonte menor e espaçamento simples:
+
+\begin{citacao}
+Desse modo, opera-se uma ruptura decisiva entre a reflexividade filosófica, isto é, a possibilidade do sujeito de pensar e refletir, e a objetividade científica. Encontramo-nos num ponto em que o conhecimento científico está sem consciência. Sem consciência moral, sem consciência reflexiva e também subjetiva. Cada vez mais, o desenvolvimento extraordinário do conhecimento científico vai tornar menos praticável a própria possibilidade de reflexão do sujeito sobre a sua pesquisa. \autocite[p.28]{morinmoigne:2000}
+\end{citacao}
+
+O ambiente \verb|citacao| gera automaticamente esse formato:
+
+\begin{lstlisting}
+\begin{citacao}
+    Texto da citação literal.
+\end{citacao}
+\end{lstlisting}
+
+
+Citações com menos de três linhas permanecem no corpo do texto, entre aspas, seguidas do autor, ano e página:
+
+\begin{quote}
+``Assumo que não posso fazer referência a entidades independentes de mim para construir meu explicar'' \autocite[p.~35]{maturana:2003}.
+\end{quote}
+
+\subsection{Comandos úteis para citações}\label{referenciasUtilizadas}
+
+Alguns exemplos de comandos e seus resultados:
 
 \begin{itemize}
-    \item \verb|\textcite{memoir}| \\ \textcite{memoir}
-    \item \verb|\cite{Goossens2007}| \\ \cite{Goossens2007} 
-    \item \verb|\textcites{acmsurveys,carvalho:2001}| \\ \textcites{acmsurveys,carvalho:2001}
-    \item \verb|\cites{acmsurveys,Buerger1989}| \\ \cites{acmsurveys,Buerger1989}
-    \item \verb|\textapud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}| \\ \textapud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}
-    \item \verb|\apud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}| \\ \apud{maturana:2003}{morinmoigne:2000}
-    \item \verb|\apud[batman][]{Buerger1989}| \\ \apud[batman][]{Buerger1989}
-    \item \verb|Andrey \cite[apud][p.~200]{Buerger1989}| \\ Andrey \cite[apud][p.~200]{Buerger1989}
-    \item \verb|Como sabemos \footcite[Cf., e.g.,][]{maturana:2003}, ...| \\  Como sabemos \footcite[Cf., e.g.,][]{maturana:2003}, ...
-    \item \verb|\citeauthor{abntex2classe}| \\ \citeauthor{abntex2classe}
-    \item \verb|\citeyear{abntex2classe}| \\ \citeyear{abntex2classe}
-    \item \verb|\fullcite{Goossens2007}| \\ \fullcite{Goossens2007}
-    
+    \item \verb|\textcite{memoir}| → \textcite{memoir}
+    \item \verb|\autocite{Goossens2007}| → \autocite{Goossens2007}
+    \item \verb|\textcites{acmsurveys,carvalho:2001}| → \textcites{acmsurveys,carvalho:2001}
+    \item \verb|\autocites{acmsurveys,Buerger1989}| → \autocites{acmsurveys,Buerger1989}
+    \item \verb|\textapud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}| → \textapud[p.~10]{maturana:2003}[p.~20]{morinmoigne:2000}
+    \item \verb|\apud{maturana:2003}{morinmoigne:2000}| → \apud{maturana:2003}{morinmoigne:2000}
+    \item \verb|\citeauthor{abntex2classe}| → \citeauthor{abntex2classe}
+    \item \verb|\citeyear{abntex2classe}| → \citeyear{abntex2classe}
+    \item \verb|\fullcite{Goossens2007}| → \fullcite{Goossens2007}
 \end{itemize}
 
 
 \chapter{Elementos flutuantes e referências cruzadas}
 \label{chap:ef}
 
-Ilustra-se neste capitulo algumas maneiras de incluir figuras, tabelas, equações e outros elementos neste documento, obtendo indexação automática em suas respectivas listas.
-A numeração sequencial de figuras, tabelas e equações ocorre de modo automático.
-Referências cruzadas são obtidas através dos comandos \verb#\label{}# e \verb#\ref{}#.
-Por exemplo, não é necessário saber que o número deste capítulo é \ref{chap:ef} para colocar o seu número no texto.
-Isto facilita muito a inserção, remoção ou relocação de elementos numerados no texto (fato corriqueiro na escrita e correção de um documento acadêmico) sem a necessidade de renumerá-los todos.
+Este capítulo apresenta exemplos de inclusão de figuras, tabelas, equações e outros elementos, com indexação automática em suas respectivas listas.  
+A numeração de figuras, tabelas e equações é gerada automaticamente.  
+As referências cruzadas utilizam os comandos \verb|\label{}| e \verb|\ref{}|, o que elimina a necessidade de ajustar manualmente a numeração ao mover, adicionar ou remover elementos no texto.
 
-
-
-
-
- 
 \section{Equações}
 \label{sec:equacoes}
 
-A transformada de Laplace é dada na \autoref{eq:laplace}, enquanto a \autoref{eq:dft} apresenta a formulação da transformada discreta de Fourier bidimensional\footnote{Deve-se reparar na formatação esteticamente perfeita destas equações.}.
+A \autoref{eq:laplace} mostra a transformada de Laplace, enquanto a \autoref{eq:dft} apresenta a formulação da transformada discreta de Fourier bidimensional\footnote{Observe a formatação esteticamente precisa destas equações.}.
 
-\begin{verbatim}
-\begin{equation}
-    X(s) = \int\limits_{t = -\infty}^{\infty} x(t) \, \text{e}^{-st} \, dt
-\label{eq:laplace}
-\end{equation}
-
-\begin{equation}
-    F(u,v)=\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}f(m,n)\exp\left[-j2\pi
-    \left(\frac{um}{M}+\frac{vn}{N}\right) \right]
-\label{eq:dft}
-\end{equation}
-\end{verbatim}
-
-
+\begin{lstlisting}[language=TeX, breaklines=true, basicstyle=\ttfamily\small,  label={lst:equacoes}]
 \begin{equation}
     X(s) = \int\limits_{t = -\infty}^{\infty} x(t) \, \text{e}^{-st} \, dt
     \label{eq:laplace}
 \end{equation}
 
 \begin{equation}
-    F(u, v) = \sum_{m = 0}^{M - 1} \sum_{n = 0}^{N - 1} f(m, n) \exp \left[ -j 2 \pi \left( \frac{u m}{M} + \frac{v n}{N} \right) \right]
+    F(u,v) = \sum_{m=0}^{M-1} \sum_{n=0}^{N-1} 
+    f(m,n)\exp\left[-j2\pi\left(\frac{um}{M}+\frac{vn}{N}\right)\right]
+    \label{eq:dft}
+\end{equation}
+\end{lstlisting}
+
+\begin{equation}
+    X(s) = \int\limits_{t = -\infty}^{\infty} x(t) \, e^{-st} \, dt
+    \label{eq:laplace}
+\end{equation}
+
+\begin{equation}
+    F(u, v) = \sum_{m = 0}^{M - 1} \sum_{n = 0}^{N - 1} f(m, n)
+    \exp \left[ -j 2 \pi \left( \frac{u m}{M} + \frac{v n}{N} \right) \right]
     \label{eq:dft}
 \end{equation}
 
+\section{Elementos flutuantes}
 
-\section{Elementos flutuantes (tabelas, quadros, gráficos e figuras)}
+Tabelas, quadros, gráficos e figuras são amplamente utilizados em trabalhos acadêmicos, cada qual com especificações próprias definidas pela ABNT \autocite{NBR14724:2024}.  
+Todos devem ser devidamente referenciados no texto.
 
-Tabelas, quadros, gráficos e figuras são elementos utilizados em trabalhos acadêmicos, e possuem diferenças e especificações definidas pela ABNT \cite{NBR14724:2011}. Todos estes elementos devem ser referenciados no texto.
-
-No quadro \ref{quadroex1} apresenta-se alguns detalhes desses elementos.
+O Quadro \ref{quadroex1} apresenta um resumo das principais diferenças entre esses elementos.
 
 \begin{quadro}[H]
 \small
-	\centering
-	\caption{Alguns detalhes sobre elementos flutuantes}
-	\label{quadroex1}
-	\begin{tabular}{|l|m{4cm}|m{4cm}|m{4cm}|}
-		\hline
-		& \textbf{Tabela}                                                                             & \textbf{Quadro}                                                                             & \textbf{Figuras}                                                                    \\ \hline
-		\textbf{Formato}    & Bordas laterais não podem ser fechadas.                                                     & As extremidades devem ser fechadas.                                                         & Podem ser em forma de fotos, mapas, gráficos, gravuras, etc.                        \\ \hline
-		\textbf{Uso}        & Geralmente para dados quantitativos.                                                        & Geralmente para dados qualitativos.                                                         & Ilustrar informações e dados.                                                       \\ \hline
-		\textbf{Elementos}  & Título, cabeçalho, conteúdo, fonte e, se necessário, notas explicativas.                    & Título, fonte, legenda e notas.                                                             & Título, numeração e fonte.                                                          \\ \hline
-		\textbf{Divisão}    & Formada por linhas horizontais.                                                               & Formado por linhas horizontais e verticais.                                                 & -                                                                                   \\ \hline
-		\textbf{Formatação} & O número e o título da tabela devem vir acima dela, enquanto a fonte deve aparecer embaixo. & O número e o título do quadro devem vir acima dele, enquanto a fonte deve aparecer embaixo. & O número e o título devem aparecer no topo, enquanto a fonte deve aparecer embaixo. \\ \hline
-	\end{tabular}
-	\fonte{16cm}{Elaborado pelo autor}
+\centering
+\caption{Comparativo entre tipos de elementos flutuantes}
+\label{quadroex1}
+\begin{tabular}{|l|m{4cm}|m{4cm}|m{4cm}|}
+\hline
+ & \textbf{Tabela} & \textbf{Quadro} & \textbf{Figura} \\ \hline
+\textbf{Formato} & Bordas laterais abertas. & Bordas totalmente fechadas. & Fotos, mapas, gráficos, gravuras etc. \\ \hline
+\textbf{Uso} & Dados quantitativos. & Dados qualitativos. & Ilustração de dados e informações. \\ \hline
+\textbf{Elementos} & Título, cabeçalho, conteúdo e fonte. & Título, fonte e notas. & Título, numeração e fonte. \\ \hline
+\textbf{Divisão} & Linhas horizontais. & Linhas horizontais e verticais. & - \\ \hline
+\textbf{Formatação} & Título e número acima; fonte abaixo. & Título e número acima; fonte abaixo. & Título acima; fonte abaixo. \\ \hline
+\end{tabular}
+\fonte{16cm}{Elaborado pelo autor.}
 \end{quadro}
 
+A inclusão de um elemento flutuante segue a estrutura abaixo:
 
-De forma geral, a inserção desses elementos podem ser feitas em ambientes específicos conforme exemplificado a seguir.
-
-
-\begin{verbatim}
+\begin{lstlisting}[language=TeX, breaklines=true, basicstyle=\ttfamily\small,  label={lst:estrutura}]
 \begin{nome do ambiente}[H]
-   \centering
-   \caption{legenda}
-   \label{"etiqueta"}
-      inserção do elemento 
-   \fonte{tamanho do elemento}{fonte do elemento}
-\end{table}
-\end{verbatim}
-Os campos apresentados nos códigos acima estão explicados no Quadro \ref{quadroex2}.
+    \centering
+    \caption{Legenda do elemento}
+    \label{etiqueta}
+    inserção do conteúdo
+    \fonte{tamanho do elemento}{fonte do elemento}
+\end{nome do ambiente}
+\end{lstlisting}
 
 \begin{quadro}[H]
 \small
-	\centering
-	\caption{Alguns campos utilizados em elementos flutuantes}
-	\label{quadroex2}
-	\begin{tabular}{|m{4cm}|m{8cm}|}
-		\hline
-	\verb|nome do ambiente| & \verb|figure|: para figuras, \verb|grafico|: para gráficos, \verb|table|: para tabelas e \verb|quadro|: para quadros\\ \hline
-	\verb|legenda| & Deve ser inserida como argumento no comando \verb|\caption{}| e refere-se a legenda do elemento flutuante.\\ \hline
-	\verb|"etiqueta"| & Deve ser inserida como argumento no comando \verb|\label{}| e consiste em um nome dado para referenciarmos àquele elemento flutuante no texto.\\ \hline
-	\verb|fonte do elemento| & Deve ser inserida como argumento no comando \verb|\fonte{}{}| e consiste da informação de onde retirou-se o elemento.\\ \hline
-	\end{tabular}
-	\fonte{13cm}{Elaborado pelo autor}
+\centering
+\caption{Campos utilizados em elementos flutuantes}
+\label{quadroex2}
+\begin{tabular}{|m{4cm}|m{8cm}|}
+\hline
+\verb|nome do ambiente| & \verb|figure| (figuras), \verb|grafico| (gráficos), \verb|table| (tabelas), \verb|quadro| (quadros). \\ \hline
+\verb|legenda| & Texto descritivo do elemento, inserido em \verb|\caption{}|. \\ \hline
+\verb|etiqueta| & Nome usado para referenciar o elemento via \verb|\ref{}|. \\ \hline
+\verb|fonte do elemento| & Indicação da origem do elemento, inserida em \verb|\fonte{}{}|. \\ \hline
+\end{tabular}
+\fonte{13cm}{Elaborado pelo autor.}
 \end{quadro}
-
 
 \subsection{Figuras e gráficos}
 
-As figuras e gráficos são elementos ilustrativos, que podem ser em forma de fotos, mapas, gráficos, gravuras, etc.
-
-A figura \ref{fig:logo} aparece automaticamente na lista de figuras.
-Para uso avançado de imagens no \LaTeX, recomenda-se a consulta de literatura especializada \cite{Goossens2007}.
+As figuras e gráficos servem para ilustrar dados ou conceitos, podendo ser compostos por fotos, mapas, diagramas ou representações gráficas.  
+A Figura \ref{fig:logo} aparece automaticamente na lista de figuras.
 
 \begin{figure}[H]
-	\centering
-	\caption{Logo do projeto \LaTeX.}
-	\includegraphics[width=13cm]{figuras/LaTeXproject.png}
-	\fonte{13cm}{\textcite{LaTeX2009}}
-	\label{fig:logo}
+\centering
+\caption{Logo do projeto \LaTeX.}
+\includegraphics[width=13cm]{figuras/LaTeXproject.png}
+\fonte{13cm}{\textcite{LaTeX2009}}
+\label{fig:logo}
 \end{figure}
 
-\pagebreak
-Inserimos a figura \ref{fig:logo} com o seguinte código:
-
-\begin{verbatim}
+\begin{lstlisting}[language=TeX, breaklines=true, basicstyle=\ttfamily\small, label={lst:figura}]
 \begin{figure}[H]
-   \centering
-   \caption{Logo do projeto \LaTeX.}
-   \includegraphics[width=13cm]{figuras/LaTeXproject.png}
-   \fonte{13cm}{\textcite{LaTeX2009}}
-   \label{fig:logo}
+    \centering
+    \caption{Logo do projeto \LaTeX.}
+    \includegraphics[width=13cm]{figuras/LaTeXproject.png}
+    \fonte{13cm}{\textcite{LaTeX2009}}
+    \label{fig:logo}
 \end{figure}
-\end{verbatim}
+\end{lstlisting}
 
-No Gráfico \ref{gr:exgrafico} apresentamos um exemplo de gráfico.
+O Gráfico \ref{gr:exgrafico} ilustra um exemplo de gráfico inserido com o ambiente \verb|grafico|:
 
 \begin{grafico}[H]
 \centering
-\caption{Evolução da Lei Orçamentária Anual (LOA) e número de matrículas IFMG}
-\includegraphics[width=0.85\linewidth]{./figuras/loa-e-matriculas.png}	
+\caption{Evolução da Lei Orçamentária Anual (LOA) e número de matrículas no IFMG}
+\includegraphics[width=0.85\linewidth]{figuras/loa-e-matriculas.png}
 \fonte{0.85\linewidth}{\textcite{ifmg2019mobilizacao}}
 \label{gr:exgrafico}
 \end{grafico}
+\pagebreak
 
-\begin{verbatim}
+\begin{lstlisting}[language=TeX, breaklines=true, basicstyle=\ttfamily\small, label={lst:grafico}]
 \begin{grafico}[H]
     \centering
-    \caption{Evolução da Lei Orçamentária Anual (LOA) e número de matrículas IFMG}
-    \includegraphics[width=0.85\linewidth]{./figuras/loa-e-matriculas.png}	
+    \caption{Evolução da Lei Orçamentária Anual (LOA) e número de matrículas no IFMG}
+    \includegraphics[width=0.85\linewidth]{figuras/loa-e-matriculas.png}
     \fonte{0.85\linewidth}{\textcite{ifmg2019mobilizacao}}
     \label{gr:exgrafico}
 \end{grafico}
-\end{verbatim}
-
+\end{lstlisting}
 
 \subsection{Tabelas}
-As tabelas devem seguir as normas descritas por \textcite{ibge1993}. Sendo formadas por linhas horizontais, devem manter suas bordas laterais abertas e geralmente são utilizadas para dados quantitativos. Os quadros, por outro lado, são formados por linhas verticais e horizontais, devem ter todas suas extremidades fechadas e são mais utilizados para dados qualitativos.
 
-\textcite{abntex2classe} fornece, na classe \verb|abntex2|, a macro \verb|IBGEtab{}{}{}|, que tem por objetivo topo, corpo e rodapé das tabelas com alinhamento conforme descrito em \textcite{ibge1993}. Esta macro deve receber três argumentos para cada uma destas partes da tabela conforme exemplificado na tabela \ref{tab:residentes}. Para representação numérica correta dos dados da tabela, consulte \textcite{ibge1993}.
+As tabelas devem seguir as normas descritas por \textcite{ibge1993}.  
+Elas apresentam dados quantitativos, com linhas horizontais e bordas laterais abertas.  
+A classe \verb|abntex2| fornece a macro \verb|\IBGEtab{}{}{}|, que formata tabelas conforme o padrão do IBGE.
 
 \begin{table}[H]
 \IBGEtab{
 \centering
-\caption{Pessoas residentes em domicílios particulares, por sexo e situação do domicílio — Brasil — 1980}
+\caption{Pessoas residentes em domicílios particulares, por sexo e situação do domicílio - Brasil, 1980}
 \label{tab:residentes}
-}
-{
+}{
 \begin{tabular}{m{2.5cm}ccc}
 \toprule
 Situação do domicílio & Total & Mulheres & Homens \\
@@ -331,20 +286,16 @@ Urbana & 79.972.931 & 41.115.439 & 38.857.492 \\
 Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
 \bottomrule
 \end{tabular}
-}
-{
-\fonte{10cm}{Fonte: Dados fictícios.}
+}{
+\fonte{10cm}{Dados fictícios.}
 }
 \end{table}
 
-\textbf{Exemplo de código para gerar a tabela \ref{tab:residentes} com a macro} \verb|IBGEtab{}{}{}|.
-
-\begin{verbatim}
+\begin{lstlisting}[language=TeX, breaklines=true, basicstyle=\ttfamily\small,  label={lst:tabela}]
 \begin{table}[H]
 \IBGEtab{
     \centering
-    \caption{Pessoas residentes em domicílios particulares, por sexo 
-        e situação do domicílio — Brasil — 1980}
+    \caption{Pessoas residentes em domicílios particulares, por sexo e situação do domicílio - Brasil, 1980}
     \label{tab:residentes}
 }{
     \begin{tabular}{m{2.5cm}ccc}
@@ -360,125 +311,115 @@ Rural & 37.987.370 & 18.479.893 & 19.507.477 \\
     \fonte{10cm}{Fonte: Dados fictícios.}
 }
 \end{table}
-\end{verbatim}
-
-
-
-
+\end{lstlisting}
 
 \subsection{Quadros}
 
-Os quadros devem ser criados dentro do ambiente \verb|quadro|, podendo sua tabulação ser feita por diversos recursos como os ambientes \verb|tabular, tabularray, tabu, ...|.
+Os quadros são formados por linhas verticais e horizontais, sendo mais adequados para dados qualitativos.  
+Devem ser criados dentro do ambiente \verb|quadro|, podendo utilizar \verb|tabular|, \verb|tabularray| ou outros formatos de tabela.
 
-Por exemplo, o código abaixo cria o quadro \ref{qua:ex}:
-
-% \begin{lstlisting}[breaklines]
-\begin{verbatim}
+\begin{lstlisting}[language=TeX, breaklines=true, basicstyle=\ttfamily\small,  label={lst:quadro}]
 \begin{quadro}[H]
-   \centering
-   \caption{Exemplo de quadro simples}
-   \label{qua:ex}
-   \begin{tabular}{|m{4cm}|m{5cm}|m{3cm}|}
-   \hline
-   \textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3}\\ \hline
-   Texto aqui & Lorem ipsum dolor ...  & Ut accumsan sapien eget magna ... \\ 
-   \hline
-   Texto da segunda linha & bla bla bla & bla bla bla  \\ \hline
-   \end{tabular}
-   \fonte{13cm}{Elaborado pelo autor}
+    \centering
+    \caption{Exemplo de quadro simples}
+    \label{qua:ex}
+    \begin{tabular}{|m{4cm}|m{5cm}|m{3cm}|}
+        \hline
+        \textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3} \\ \hline
+        Texto aqui & Lorem ipsum dolor ... & Ut accumsan sapien eget magna ... \\ \hline
+        Texto da segunda linha & bla bla bla & bla bla bla \\ \hline
+    \end{tabular}
+    \fonte{13cm}{Elaborado pelo autor.}
 \end{quadro}
-\end{verbatim}
+\end{lstlisting}
 
 \begin{quadro}[H]
-   \centering
-   \caption{Exemplo de quadro simples}
-   \label{qua:ex}
-   \begin{tabular}{|m{4cm}|m{4cm}|m{4cm}|}
-   \hline
-   \textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3}\\ \hline
-   Texto aqui & Lorem ipsum dolor ...  & Ut accumsan sapien eget magna ... \\ \hline
-   Texto da segunda linha & bla bla bla & bla bla bla  \\ \hline
-   \end{tabular}
-   \fonte{13cm}{Elaborado pelo autor}
+\centering
+\caption{Exemplo de quadro simples}
+\label{qua:ex}
+\begin{tabular}{|m{4cm}|m{4cm}|m{4cm}|}
+\hline
+\textbf{Título 1} & \textbf{Título 2} & \textbf{Título 3} \\ \hline
+Texto aqui & Lorem ipsum dolor ... & Ut accumsan sapien eget magna ... \\ \hline
+Texto da segunda linha & bla bla bla & bla bla bla \\ \hline
+\end{tabular}
+\fonte{13cm}{Elaborado pelo autor.}
 \end{quadro}
-
-\pagebreak
-
 
 
 
 \section{Exemplo de criação de cronograma}
 
+Em projetos de pesquisa, é comum a necessidade de apresentar um plano de trabalho que descreva as etapas e o cronograma de execução.  
+A seguir, mostra-se um exemplo de criação de cronograma utilizando o pacote \verb|pgfgantt|, com algumas personalizações. 
 
-No caso de projetos de pesquisa, pode ser necessário a criação de um plano de trabalho com a a descrição das etapas do mesmo.
-
-A seguir apresentamos um exemplo de criação feita com algumas customizações do pacote \verb|pgfgantt|.
-
-\begin{verbatim}
-%descrição das etapas
+\newpage
+\begin{lstlisting}[language={[LaTeX]TeX}, label={lst:cronograma}, breaklines=true]
+% Descrição das etapas
 \begin{etapas}
-    	\item \label{e1} Descrição da etapa 1
-    	\item \label{e2} Descrição da etapa 2
-    	\item \label{e3} Sed consequat tellus et tortor. Ut tempor laoreet quam.
-    	\item \label{e4} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-    	\item \label{e5} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-    	\item \label{e6} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-    	\item \label{e7} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e1} Descrição da etapa 1
+    \item \label{e2} Descrição da etapa 2
+    \item \label{e3} Sed consequat tellus et tortor. Ut tempor laoreet quam.
+    \item \label{e4} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e5} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e6} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e7} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
 \end{etapas}
 
-%diagrama com referências às etapas
+% Diagrama com referências às etapas
 \begin{center}
-        \begin{ganttchart}[vgrid,hgrid]{1}{24}
-        \gantttitle{2021}{12} %12 meses em 2021
-        \gantttitle{2022}{12} \\ %12 meses em 2022
-            \gantttitlelist{1,...,12}{1} % meses 1 ao 12 de 2021
-            \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2022
-                \ganttbar[progress=65]{\ref{e1}}{1}{7} \\
-                \ganttbar{\ref{e2}}{7}{12} \\
-                \ganttbar{\ref{e3}}{13}{18} \\
-                \ganttbar{\ref{e4}}{18}{24}
-        \end{ganttchart}
-        
-        \begin{ganttchart}[vgrid,hgrid]{1}{12}
-        \gantttitle{2023}{12}\\ %12 meses em 2023
-            \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2023
-                \ganttbar{\ref{e5}}{1}{7} \\
-                \ganttbar{\ref{e6}}{8}{10} \\
-                \ganttbar{\ref{e7}}{10}{12}
-        \end{ganttchart}
-\end{center}
-\end{verbatim}
-
-
-\begin{etapas}
-	\item \label{e1} Descrição da etapa 1
-	\item \label{e2} Descrição da etapa 2
-	\item \label{e3} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-	\item \label{e4} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-	\item \label{e5} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-	\item \label{e6} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-	\item \label{e7} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
-\end{etapas}
-
-\begin{center}
-
-\begin{ganttchart}[vgrid,hgrid]{1}{24}
-\gantttitle{2021}{12} %12 meses em 2021
-\gantttitle{2022}{12} \\ %12 meses em 2022
-    \gantttitlelist{1,...,12}{1} % meses 1 ao 12 de 2021
-    \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2022
+    \begin{ganttchart}[vgrid, hgrid]{1}{24}
+        \gantttitle{2021}{12} % 12 meses em 2021
+        \gantttitle{2022}{12} \\ % 12 meses em 2022
+        \gantttitlelist{1,...,12}{1} % meses 1 ao 12 de 2021
+        \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2022
         \ganttbar[progress=65]{\ref{e1}}{1}{7} \\
         \ganttbar{\ref{e2}}{7}{12} \\
         \ganttbar{\ref{e3}}{13}{18} \\
         \ganttbar{\ref{e4}}{18}{24}
-\end{ganttchart}
-
-\begin{ganttchart}[vgrid,hgrid]{1}{12}
-\gantttitle{2023}{12}\\ %12 meses em 2023
-    \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2023
+    \end{ganttchart}
+    
+    \begin{ganttchart}[vgrid, hgrid]{1}{12}
+        \gantttitle{2023}{12} \\ % 12 meses em 2023
+        \gantttitlelist{1,...,12}{1} \\ % meses 1 ao 12 de 2023
         \ganttbar{\ref{e5}}{1}{7} \\
         \ganttbar{\ref{e6}}{8}{10} \\
         \ganttbar{\ref{e7}}{10}{12}
+    \end{ganttchart}
+\end{center}
+\end{lstlisting}
+
+\pagebreak
+A saída correspondente é apresentada a seguir:
+
+\begin{etapas}
+    \item \label{e1} Descrição da etapa 1
+    \item \label{e2} Descrição da etapa 2
+    \item \label{e3} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e4} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e5} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e6} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+    \item \label{e7} Sed consequat tellus et tortor. Ut tempor laoreet quam. 
+\end{etapas}
+
+\begin{center}
+\begin{ganttchart}[vgrid,hgrid]{1}{24}
+    \gantttitle{2021}{12}
+    \gantttitle{2022}{12} \\
+    \gantttitlelist{1,...,12}{1}
+    \gantttitlelist{1,...,12}{1} \\
+    \ganttbar[progress=65]{\ref{e1}}{1}{7} \\
+    \ganttbar{\ref{e2}}{7}{12} \\
+    \ganttbar{\ref{e3}}{13}{18} \\
+    \ganttbar{\ref{e4}}{18}{24}
 \end{ganttchart}
 
+\begin{ganttchart}[vgrid,hgrid]{1}{12}
+    \gantttitle{2023}{12}\\
+    \gantttitlelist{1,...,12}{1} \\
+    \ganttbar{\ref{e5}}{1}{7} \\
+    \ganttbar{\ref{e6}}{8}{10} \\
+    \ganttbar{\ref{e7}}{10}{12}
+\end{ganttchart}
 \end{center}
+
